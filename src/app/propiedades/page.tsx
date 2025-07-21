@@ -1,26 +1,6 @@
 import PropertyCard from "@/components/PropertyCard";
 import Footer from "@/components/Footer";
-
-const propiedades = [
-  {
-    title: "Apartamento Moderno",
-    location: "Banana Island, Madrid",
-    price: "€300,000",
-    features: "2 Hab / 2 Baños / 110 m²",
-  },
-  {
-    title: "Casa Familiar",
-    location: "Parkview Estate, Barcelona",
-    price: "€450,000",
-    features: "3 Hab / 3 Baños / 200 m²",
-  },
-  {
-    title: "Torre Residencial",
-    location: "Bio Atlantic, Valencia",
-    price: "€650,000",
-    features: "2 Hab / 2 Baños / 95 m²",
-  },
-];
+import { propiedades } from "@/mock/props";
 
 export default function PropiedadesPage() {
   return (
