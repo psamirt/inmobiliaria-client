@@ -1,0 +1,110 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "./ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@radix-ui/react-select";
+import { MapPin, Search } from "lucide-react";
+
+const HeroSection = () => {
+  return (
+    <section
+      className="min-h-screen flex items-center relative bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url(/images/hero-building.jpg)",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Main Content */}
+        <div className="max-w-2xl space-y-8">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Encuentra Una Casa
+              <br />
+              <span className="text-primary">Que Te Convenga</span>
+            </h1>
+            <p className="text-lg text-white/90 max-w-md">
+              ¿Quieres encontrar una casa? Estamos listos para ayudarte a
+              encontrar una que se adapte a tu estilo de vida y necesidades
+            </p>
+          </div>
+
+          <Button size="lg" className="px-8 py-3 text-lg">
+            Comenzar
+          </Button>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 pt-8">
+            <div>
+              <div className="text-3xl font-bold text-white">1200+</div>
+              <div className="text-white/80">Propiedades Listadas</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">4500+</div>
+              <div className="text-white/80">Clientes Felices</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">100+</div>
+              <div className="text-white/80">Premios</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Card className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl mx-4 p-6 bg-card shadow-xl z-20">
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold text-text-dark">
+            Buscar propiedades disponibles
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Select>
+              <SelectTrigger className="w-full">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-text-light" />
+                  <SelectValue placeholder="Ubicación" />
+                </div>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="madrid">Madrid</SelectItem>
+                <SelectItem value="barcelona">Barcelona</SelectItem>
+                <SelectItem value="valencia">Valencia</SelectItem>
+                <SelectItem value="sevilla">Sevilla</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Tipo de Propiedad" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="casa">Casa</SelectItem>
+                <SelectItem value="apartamento">Apartamento</SelectItem>
+                <SelectItem value="villa">Villa</SelectItem>
+                <SelectItem value="duplex">Dúplex</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Presupuesto" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="0-200k">€0 - €200,000</SelectItem>
+                <SelectItem value="200k-500k">€200,000 - €500,000</SelectItem>
+                <SelectItem value="500k-1m">€500,000 - €1,000,000</SelectItem>
+                <SelectItem value="1m+">€1,000,000+</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Button className="w-full h-11">
+              <Search className="h-4 w-4 mr-2" />
+              Buscar Ahora
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </section>
+  );
+};
+
+export default HeroSection;
