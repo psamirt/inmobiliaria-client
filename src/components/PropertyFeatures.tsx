@@ -22,28 +22,28 @@ import {
 } from "lucide-react";
 
 export const featureIconMap: Record<string, React.ReactNode> = {
-  "Cocina equipada": <Utensils className="w-5 h-5" />,
-  "Aire acondicionado": <Snowflake className="w-5 h-5" />,
-  "Piscina comunitaria": <Droplet className="w-5 h-5" />,
-  Ascensor: <ArrowUp className="w-5 h-5" />,
-  "Garaje incluido": <Car className="w-5 h-5" />,
-  Trastero: <Archive className="w-5 h-5" />,
-  "Cerca de transporte público": <Train className="w-5 h-5" />,
-  Balcón: <Home className="w-5 h-5" />,
-  "Terraza privada": <Sun className="w-5 h-5" />,
-  Jardín: <Leaf className="w-5 h-5" />,
-  Calefacción: <Sofa className="w-5 h-5" />,
-  "Seguridad 24h": <Shield className="w-5 h-5" />,
-  Amueblado: <Sofa className="w-5 h-5" />,
-  "Mascotas permitidas": <PawPrint className="w-5 h-5" />,
-  "Acceso para discapacitados": <Users className="w-5 h-5" />,
-  "Zona infantil": <Users className="w-5 h-5" />,
-  Gimnasio: <Dumbbell className="w-5 h-5" />,
-  "Vistas al mar": <Eye className="w-5 h-5" />,
-  "Zona de barbacoa": <Beef className="w-5 h-5" />,
-  "Área Construida": <Ruler className="w-5 h-5" />,
-  Dormitorios: <Bed className="w-5 h-5" />,
-  Baños: <ShowerHead className="w-5 h-5" />,
+  "Cocina equipada": <Utensils size={16} />,
+  "Aire acondicionado": <Snowflake size={16} />,
+  "Piscina comunitaria": <Droplet size={16} />,
+  Ascensor: <ArrowUp size={16} />,
+  "Garaje incluido": <Car size={16} />,
+  Trastero: <Archive size={16} />,
+  "Cerca de transporte público": <Train size={16} />,
+  Balcón: <Home size={16} />,
+  "Terraza privada": <Sun size={16} />,
+  Jardín: <Leaf size={16} />,
+  Calefacción: <Sofa size={16} />,
+  "Seguridad 24h": <Shield size={16} />,
+  Amueblado: <Sofa size={16} />,
+  "Mascotas permitidas": <PawPrint size={16} />,
+  "Acceso para discapacitados": <Users size={16} />,
+  "Zona infantil": <Users size={16} />,
+  Gimnasio: <Dumbbell size={16} />,
+  "Vistas al mar": <Eye size={16} />,
+  "Zona de barbacoa": <Beef size={16} />,
+  "Área Construida": <Ruler size={16} />,
+  Dormitorios: <Bed size={16} />,
+  Baños: <ShowerHead size={16} />,
 };
 
 interface PropertyFeaturesProps {
@@ -51,7 +51,7 @@ interface PropertyFeaturesProps {
 }
 
 const PropertyFeatures = ({ features }: PropertyFeaturesProps) => (
-  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <ul className="grid grid-cols-1 gap-0">
     {features.map((label) => (
       <li key={label} className="flex items-center gap-2 text-muted-foreground">
         {featureIconMap[label] ?? <span className="w-5 h-5" />}{" "}

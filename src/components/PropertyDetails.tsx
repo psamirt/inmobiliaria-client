@@ -65,7 +65,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
                 key={index}
                 className="flex items-center gap-3 p-3 rounded-lg transition-colors bg-property-highlight border border-property-accent/20 hover:bg-accent/50"
               >
-                <div className="p-2 rounded-lg bg-accent">
+                <div className="p-2 rounded-lg">
                   <PropertyFeatures features={[feature]} />
                 </div>
                 <span className="font-medium text-foreground">{feature}</span>
