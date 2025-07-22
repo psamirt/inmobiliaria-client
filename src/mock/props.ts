@@ -22,12 +22,11 @@ export const propiedades = [
         "Trastero",
         "Cerca de transporte público",
       ],
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       map: "/images/hero-building.jpg",
       images: [
         "/images/hero-building.jpg",
-        "/images/hero-building.jpg",
-        "/images/hero-building.jpg"
+        "/images/imagen2.png",
+        "/images/imagen3.png"
       ],
     },
     {
@@ -37,10 +36,26 @@ export const propiedades = [
       price: "€450,000",
       features: "3 Hab / 3 Baños / 200 m²",
       description: "Casa ideal para familias, con amplio jardín y espacios luminosos.",
+      mainFeatures: [
+        { label: "Área Construida", value: "110 m²" },
+        { label: "Dormitorios", value: "2" },
+        { label: "Baños", value: "2" },
+      ],
+      additionalDetails: [
+        "Terraza privada",
+        "Cocina equipada",
+        "Aire acondicionado",
+        "Piscina comunitaria",
+        "Ascensor",
+        "Garaje incluido",
+        "Trastero",
+        "Cerca de transporte público",
+      ],
+      map: "/images/hero-building.jpg",
       images: [
-        "/images/hero-building.jpg",
-        "/images/hero-building.jpg",
-        "/images/hero-building.jpg"
+        "/images/imagen4.jpg",
+        "/images/imagen5.jpg",
+        "/images/imagen6.jpg"
       ],
     },
     {
@@ -49,11 +64,27 @@ export const propiedades = [
       location: "Bio Atlantic, Valencia",
       price: "€650,000",
       features: "2 Hab / 2 Baños / 95 m²",
-      description: "Torre residencial de lujo en el corazón de Valencia.",
+      description: "Casa ideal para familias, con amplio jardín y espacios luminosos.",
+      mainFeatures: [
+        { label: "Área Construida", value: "110 m²" },
+        { label: "Dormitorios", value: "2" },
+        { label: "Baños", value: "2" },
+      ],
+      additionalDetails: [
+        "Terraza privada",
+        "Cocina equipada",
+        "Aire acondicionado",
+        "Piscina comunitaria",
+        "Ascensor",
+        "Garaje incluido",
+        "Trastero",
+        "Cerca de transporte público",
+      ],
+      map: "/images/hero-building.jpg",
       images: [
-        "/images/hero-building.jpg",
-        "/images/hero-building.jpg",
-        "/images/hero-building.jpg"
+        "/images/imagen7.jpg",
+        "/images/imagen5.jpg",
+        "/images/imagen8.jpg"
       ],
     },
   ];

@@ -9,7 +9,15 @@ export default function PropiedadesPage() {
         <h1 className="text-4xl font-bold mb-8">Propiedades Disponibles</h1>
         <div className="grid md:grid-cols-3 gap-8">
           {propiedades.map((p, i) => (
-            <PropertyCard key={i} {...p} />
+            <PropertyCard
+              key={p.slug || i}
+              title={p.title}
+              location={p.location}
+              price={p.price}
+              features={p.features}
+              imageUrl={p.images?.[0]}
+              slug={p.slug}
+            />
           ))}
         </div>
       </div>
