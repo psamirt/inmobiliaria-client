@@ -6,11 +6,14 @@ import Link from "next/link";
 interface PropertyCardProps {
   title: string;
   location: string;
-  price: string;
+  price: number;
   features: string;
   imageUrl?: string;
   slug: string;
 }
+
+const formatUSD = (value: number) =>
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
 
 const PropertyCard = ({ title, location, price, features, imageUrl, slug }: PropertyCardProps) => (
   <Card className="p-4 flex flex-col gap-4">
@@ -27,7 +30,7 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug }: Prop
       <h4 className="font-semibold text-lg">{title}</h4>
       <div className="text-sm text-muted-foreground">{location}</div>
       <div className="text-sm text-muted-foreground">{features}</div>
-      <div className="font-bold text-primary text-xl">{price}</div>
+      <div className="font-bold text-primary text-xl">{formatUSD(price)}</div>
     </div>
     <Button variant="outline" asChild>
       <Link href={`/propiedades/${slug}`}>Ver Detalles</Link>

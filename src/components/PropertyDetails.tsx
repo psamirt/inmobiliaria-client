@@ -4,6 +4,9 @@ import { Property } from "@/types/types";
 import { MapPin } from "lucide-react";
 import PropertyFeatures from "./PropertyFeatures";
 
+const formatUSD = (value: number) =>
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
+
 const PropertyDetails = ({ props }: { props: Property }) => {
   return (
     <div className="space-y-8">
@@ -21,7 +24,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
           </div>
           <div className="text-right">
             <div className="text-3xl md:text-4xl font-bold text-primary">
-              {props.price}
+              {formatUSD(props.price)}
             </div>
             <p className="text-sm text-muted-foreground">Precio final</p>
           </div>

@@ -6,7 +6,7 @@ export const propiedades = [
     district: "Madrid",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€300,000",
+    price: 300000,
     features: "2 Hab / 2 Baños / 110 m²",
     code: "21222",
     type: "apartamento",
@@ -27,7 +27,6 @@ export const propiedades = [
       { label: "Trastero", quantity: 1 },
       { label: "Cerca de transporte público", quantity: 1 },
     ],
-    map: "/images/hero-building.jpg",
     images: [
       "/images/hero-building.jpg",
       "/images/imagen2.png",
@@ -47,7 +46,7 @@ export const propiedades = [
     district: "Barcelona",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€450,000",
+    price: 450000,
     features: "3 Hab / 3 Baños / 200 m²",
     type: "casa",
     status: "En Venta",
@@ -68,7 +67,6 @@ export const propiedades = [
       { label: "Trastero", quantity: 1 },
       { label: "Cerca de transporte público", quantity: 1 },
     ],
-    map: "/images/hero-building.jpg",
     images: [
       "/images/imagen4.jpg",
       "/images/imagen5.jpg",
@@ -89,7 +87,7 @@ export const propiedades = [
     district: "Valencia",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€650,000",
+    price: 650000,
     features: "2 Hab / 2 Baños / 95 m²",
     type: "duplex",
     status: "En Venta",
@@ -110,7 +108,6 @@ export const propiedades = [
       { label: "Trastero", quantity: 1 },
       { label: "Cerca de transporte público", quantity: 1 },
     ],
-    map: "/images/hero-building.jpg",
     images: [
       "/images/imagen7.jpg",
       "/images/imagen5.jpg",
@@ -131,7 +128,7 @@ export const propiedades = [
     district: "Alicante",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€720,000",
+    price: 720000,
     features: "3 Hab / 2 Baños / 130 m²",
     type: "atico",
     status: "En Venta",
@@ -151,7 +148,7 @@ export const propiedades = [
       { label: "Cocina equipada", quantity: 1 },
       { label: "Amueblado", quantity: 1 },
     ],
-    map: "/images/imagen3.png",
+    
     images: [
       "/images/imagen2.png",
       "/images/hero-building.jpg",
@@ -172,7 +169,7 @@ export const propiedades = [
     district: "Madrid",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€950,000",
+    price: 950000,
     features: "4 Hab / 3 Baños / 250 m²",
     type: "villa",
     status: "En Venta",
@@ -191,7 +188,7 @@ export const propiedades = [
       { label: "Mascotas permitidas", quantity: 1 },
       { label: "Calefacción", quantity: 1 },
     ],
-    map: "/images/imagen5.jpg",
+    
     images: [
       "/images/imagen7.jpg",
       "/images/imagen6.jpg",
@@ -212,7 +209,7 @@ export const propiedades = [
     district: "Barcelona",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€380,000",
+    price: 380000,
     features: "1 Hab / 1 Baño / 80 m²",
     type: "loft",
     status: "En Venta",
@@ -232,7 +229,7 @@ export const propiedades = [
       { label: "Acceso para discapacitados", quantity: 1 },
       { label: "Gimnasio", quantity: 1 },
     ],
-    map: "/images/imagen6.jpg",
+    
     images: [
       "/images/imagen3.png",
       "/images/imagen8.jpg",
@@ -253,7 +250,7 @@ export const propiedades = [
     district: "Barcelona",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€520,000",
+    price: 520000,
     features: "3 Hab / 2 Baños / 150 m²",
     type: "duplex",
     status: "En Venta",
@@ -272,7 +269,7 @@ export const propiedades = [
       { label: "Ascensor", quantity: 1 },
       { label: "Seguridad 24h", quantity: 1 },
     ],
-    map: "/images/imagen8.jpg",
+    
     images: [
       "/images/imagen4.jpg",
       "/images/hero-building.jpg",
@@ -293,7 +290,7 @@ export const propiedades = [
     district: "Sevilla",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€270,000",
+    price: 270000,
     features: "2 Hab / 1 Baño / 90 m²",
     type: "apartamento",
     status: "En Venta",
@@ -311,7 +308,7 @@ export const propiedades = [
       { label: "Aire acondicionado", quantity: 1 },
       { label: "Mascotas permitidas", quantity: 1 },
     ],
-    map: "/images/imagen2.png",
+    
     images: [
       "/images/imagen5.jpg",
       "/images/imagen6.jpg",
@@ -332,7 +329,7 @@ export const propiedades = [
     district: "Valencia",
     lat: 40.4168,
     lng: -3.7038,
-    price: "€600,000",
+    price: 600000,
     features: "4 Hab / 3 Baños / 210 m²",
     type: "casa",
     status: "En Venta",
@@ -351,7 +348,7 @@ export const propiedades = [
       { label: "Garaje incluido", quantity: 2 },
       { label: "Seguridad 24h", quantity: 1 },
     ],
-    map: "/images/imagen7.jpg",
+    
     images: [
       "/images/imagen8.jpg",
       "/images/imagen2.png",
