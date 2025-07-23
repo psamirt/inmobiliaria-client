@@ -1,20 +1,20 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Property } from "@/types/types";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const PropertyMap = ({ props }: { props: Property }) => {
-  const mapContainer = useRef<HTMLDivElement>(null);
+  const [showMap, setShowMap] = useState(false);
 
   // Simulate map functionality without external dependencies
-  useEffect(() => {
-    if (!mapContainer.current) return;
+  // useEffect(() => {
+  //   if (!mapContainer.current) return;
 
-    // This would be where you'd initialize your map (Google Maps, Mapbox, etc.)
-    // For now, we'll create a beautiful static representation
-  }, []);
+  //   // This would be where you'd initialize your map (Google Maps, Mapbox, etc.)
+  //   // For now, we'll create a beautiful static representation
+  // }, []);
 
   return (
     <Card className="shadow-[var(--shadow-card)]">
@@ -25,12 +25,17 @@ const PropertyMap = ({ props }: { props: Property }) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Map placeholder */}
-        <div className="relative w-full h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden border border-border">
-          {/* Map visualization */}
-          <LoadScript
-            googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
-          >
+        {/* Map placeholder o mapa interactivo */}
+        <div className="relative w-full h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden border border-border flex items-center justify-center">
+          {!showMap ? (
+            <Button
+              onClick={() => setShowMap(true)}
+              className="z-10"
+            >
+              <MapPin className="h-5 w-5 mr-2" />
+              Ver mapa interactivo
+            </Button>
+          ) : (
             <GoogleMap
               mapContainerStyle={{ width: "100%", height: "100%" }}
               center={{ lat: props.lat, lng: props.lng }}
@@ -38,7 +43,7 @@ const PropertyMap = ({ props }: { props: Property }) => {
             >
               <Marker position={{ lat: props.lat, lng: props.lng }} />
             </GoogleMap>
-          </LoadScript>
+          )}
         </div>
 
         {/* Nearby services */}
