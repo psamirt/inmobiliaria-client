@@ -70,7 +70,15 @@ const PropertyMap = ({ props }: { props: Property }) => {
         </div>
 
         {/* Navigation button */}
-        <Button className="w-full hover:opacity-90 transition-opacity">
+        <Button
+          onClick={() => {
+            window.open(
+              `https://www.google.com/maps/dir/?api=1&destination=${props.lat},${props.lng}`,
+              "_blank"
+            );
+          }}
+          className="w-full hover:opacity-90 transition-opacity"
+        >
           <Navigation className="h-4 w-4 mr-2" />
           Ver Direcciones en el Mapa
         </Button>
