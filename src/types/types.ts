@@ -3,6 +3,8 @@ export interface Property {
   title: string;
   location: string;
   district: string;
+  lat: number;
+  lng: number;
   price: string;
   features: string;
   code?: string;
@@ -11,4 +13,5 @@ export interface Property {
   additionalDetails: { label: string; quantity?: string | number }[];
   map: string;
   images: string[];
+  nearbyServices: { name: string; type: string; distance: string }[];
 }

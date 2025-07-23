@@ -41,7 +41,7 @@ export default function PropertyDetailPage() {
           {/* Right column - Map */}
           <div className="lg:col-span-1">
             <div className="sticky top-8">
-              <PropertyMap />
+              <PropertyMap props={property} />
             </div>
           </div>
         </div>
