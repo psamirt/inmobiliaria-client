@@ -3,6 +3,13 @@ import HeroSection from "@/components/HeroSection";
 import PropertyCard from "@/components/PropertyCard";
 import { propiedades } from "@/mock/props";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 export default function Home() {
   return (
@@ -14,18 +21,25 @@ export default function Home() {
           <h2 className="text-3xl font-bold">Nuestras Casas Populares</h2>
           <Link href="/propiedades" className="text-primary font-medium hover:underline">Ver Todas →</Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {propiedades.map((p, i) => (
-            <PropertyCard
-              key={p.slug || i}
-              title={p.title}
-              location={p.location}
-              price={p.price}
-              features={p.features}
-              imageUrl={p.images?.[0]}
-              slug={p.slug}
-            />
-          ))}
+        <div className="relative">
+          <Carousel>
+            <CarouselContent>
+              {propiedades.slice(0, 6).map((p, i) => (
+                <CarouselItem key={p.slug || i} className="md:basis-1/3 lg:basis-1/3">
+                  <PropertyCard
+                    title={p.title}
+                    location={p.location}
+                    price={p.price}
+                    features={p.features}
+                    imageUrl={p.images?.[0]}
+                    slug={p.slug}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
       {/* Testimonio del fundador anclado al footer */}

@@ -46,15 +46,27 @@ export const featureIconMap: Record<string, React.ReactNode> = {
   Baños: <ShowerHead size={16} />,
 };
 
+interface FeatureItem {
+  label: string;
+  quantity?: string | number;
+}
+
 interface PropertyFeaturesProps {
-  features: string[];
+  features: FeatureItem[];
 }
 
 const PropertyFeatures = ({ features }: PropertyFeaturesProps) => (
-  <ul className="grid grid-cols-1 gap-0">
-    {features.map((label) => (
-      <li key={label} className="flex items-center gap-2 text-muted-foreground">
-        {featureIconMap[label] ?? <span className="w-5 h-5" />}{" "}
+  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    {features.map((feature) => (
+      <li
+        key={feature.label}
+        className="flex items-center gap-2 text-muted-foreground"
+      >
+        {featureIconMap[feature.label] ?? <span className="w-5 h-5" />}
+        <span className="font-medium text-foreground">
+          {feature.quantity ? `${feature.quantity} ` : ""}
+          {feature.label}
+        </span>
       </li>
     ))}
   </ul>

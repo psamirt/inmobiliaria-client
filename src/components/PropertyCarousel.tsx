@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Heart, Share2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface PropertyCarouselProps {
   images: string[];
@@ -11,7 +12,6 @@ interface PropertyCarouselProps {
 
 const PropertyCarousel = ({ images, alt = "Imagen de propiedad" }: PropertyCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
 
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -60,18 +60,11 @@ const PropertyCarousel = ({ images, alt = "Imagen de propiedad" }: PropertyCarou
           <Button
             variant="outline"
             size="icon"
-            className={cn(
-              "bg-white/90 hover:bg-white border-none shadow-[var(--shadow-card)] backdrop-blur-sm transition-colors",
-              isLiked && "bg-red-50 hover:bg-red-100"
-            )}
-            onClick={() => setIsLiked(!isLiked)}
-          >
-            <Heart className={cn("h-5 w-5", isLiked ? "fill-red-500 text-red-500" : "text-foreground")} />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
             className="bg-white/90 hover:bg-white border-none shadow-[var(--shadow-card)] backdrop-blur-sm"
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              toast.success("URL copiada al portapapeles");
+            }}
           >
             <Share2 className="h-5 w-5 text-foreground" />
           </Button>

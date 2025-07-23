@@ -16,7 +16,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
             </h1>
             <p className="text-muted-foreground mt-2 flex items-center gap-2">
               <MapPin className="h-4 w-4" />
-              {props.location}
+              {props.location}, {props.district}
             </p>
           </div>
           <div className="text-right">
@@ -28,17 +28,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
         </div>
 
         {/* Quick specs */}
-        <div className="flex flex-wrap gap-4">
-          {props.mainFeatures.map((feature, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 text-muted-foreground"
-            >
-              <PropertyFeatures features={[feature]} />
-              <span className="text-sm font-medium">{feature}</span>
-            </div>
-          ))}
-        </div>
+        <PropertyFeatures features={props.mainFeatures} />
       </div>
 
       <Separator />
@@ -59,19 +49,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
           <h2 className="text-xl font-semibold text-foreground">
             Características
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {props.additionalDetails.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 p-3 rounded-lg transition-colors bg-property-highlight border border-property-accent/20 hover:bg-accent/50"
-              >
-                <div className="p-2 rounded-lg">
-                  <PropertyFeatures features={[feature]} />
-                </div>
-                <span className="font-medium text-foreground">{feature}</span>
-              </div>
-            ))}
-          </div>
+          <PropertyFeatures features={props.additionalDetails} />
         </CardContent>
       </Card>
     </div>

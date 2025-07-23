@@ -1,9 +1,37 @@
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "./ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@radix-ui/react-select";
-import { MapPin, Search } from "lucide-react";
+import PropertyFilters from "@/components/PropertyFilters";
+import { propiedades } from "@/mock/props";
+
+const getUnique = (arr: string[]): string[] => Array.from(new Set(arr));
+
+const ubicaciones: string[] = getUnique(propiedades.map((p) => p.district));
+const tipos: string[] = getUnique(propiedades.map((p) => p.type));
+const presupuestos: string[] = [
+  "0-200k",
+  "200k-500k",
+  "500k-1m",
+  "1m+",
+];
+
+interface Filters {
+  ubicacion: string;
+  tipo: string;
+  presupuesto: string;
+}
 
 const HeroSection = () => {
+  const router = useRouter();
+
+  const handleFilters = ({ ubicacion, tipo, presupuesto }: Filters) => {
+    const params = new URLSearchParams();
+    if (ubicacion) params.append("ubicacion", ubicacion);
+    if (tipo) params.append("tipo", tipo);
+    if (presupuesto) params.append("presupuesto", presupuesto);
+    router.push(`/propiedades?${params.toString()}`);
+  };
+
   return (
     <section
       className="min-h-screen flex items-center relative bg-cover bg-center bg-no-repeat"
@@ -55,52 +83,12 @@ const HeroSection = () => {
           <h3 className="text-xl font-semibold text-text-dark">
             Buscar propiedades disponibles
           </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Select>
-              <SelectTrigger className="w-full">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-text-light" />
-                  <SelectValue placeholder="Ubicación" />
-                </div>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="madrid">Madrid</SelectItem>
-                <SelectItem value="barcelona">Barcelona</SelectItem>
-                <SelectItem value="valencia">Valencia</SelectItem>
-                <SelectItem value="sevilla">Sevilla</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Tipo de Propiedad" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="casa">Casa</SelectItem>
-                <SelectItem value="apartamento">Apartamento</SelectItem>
-                <SelectItem value="villa">Villa</SelectItem>
-                <SelectItem value="duplex">Dúplex</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Presupuesto" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0-200k">€0 - €200,000</SelectItem>
-                <SelectItem value="200k-500k">€200,000 - €500,000</SelectItem>
-                <SelectItem value="500k-1m">€500,000 - €1,000,000</SelectItem>
-                <SelectItem value="1m+">€1,000,000+</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Button className="w-full h-11">
-              <Search className="h-4 w-4 mr-2" />
-              Buscar Ahora
-            </Button>
-          </div>
+          <PropertyFilters
+            ubicaciones={ubicaciones}
+            tipos={tipos}
+            presupuestos={presupuestos}
+            onSubmit={handleFilters}
+          />
         </div>
       </Card>
     </section>

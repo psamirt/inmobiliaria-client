@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navItems = [
     { name: "Nosotros", path: "/nosotros" },
@@ -13,8 +15,7 @@ const Navbar = () => {
     { name: "Contáctanos", path: "/contacto" },
   ];
 
-  const isActive = (path: string) =>
-    typeof window !== "undefined" && location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="bg-background border-b border-border top-0 z-50">
