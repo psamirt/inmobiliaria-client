@@ -52,7 +52,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <Button size="lg" className="px-8 py-3 text-lg">
+          <Button
+            onClick={() => router.push("/propiedades")}
+            size="lg"
+            className="px-8 py-3 text-lg"
+          >
             Comenzar
           </Button>
 
@@ -74,8 +78,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4">
-        <Card className="mx-auto w-full max-w-4xl p-6 bg-card shadow-xl z-50">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4 z-50">
+        <Card className="mx-auto w-full max-w-4xl p-6 bg-card shadow-xl">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-text-dark">
               Buscar propiedades disponibles
