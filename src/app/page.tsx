@@ -58,8 +58,9 @@ export default function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+
+            <CarouselPrevious className="absolute left-[10px] lg:left-[-50px] top-1/2 transform -translate-y-1/2 z-10" />
+            <CarouselNext className="absolute right-[10px] lg:right-[-50px] top-1/2 transform -translate-y-1/2 z-10" />
           </Carousel>
         </div>
       </section>

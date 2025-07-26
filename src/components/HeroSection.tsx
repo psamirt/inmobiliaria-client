@@ -8,12 +8,7 @@ const getUnique = (arr: string[]): string[] => Array.from(new Set(arr));
 
 const ubicaciones: string[] = getUnique(propiedades.map((p) => p.district));
 const tipos: string[] = getUnique(propiedades.map((p) => p.type));
-const presupuestos: string[] = [
-  "0-200k",
-  "200k-500k",
-  "500k-1m",
-  "1m+",
-];
+const presupuestos: string[] = ["0-200k", "200k-500k", "500k-1m", "1m+"];
 
 interface Filters {
   ubicacion: string;
@@ -34,7 +29,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="min-h-screen flex items-center relative bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex lg:items-center relative bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url(/images/hero-building.jpg)",
       }}
@@ -44,7 +39,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Main Content */}
-        <div className="max-w-2xl space-y-8">
+        <div className="max-w-2xl space-y-8 mt-10 lg:mt-0">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Encuentra Una Casa
@@ -62,7 +57,7 @@ const HeroSection = () => {
           </Button>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-8">
+          <div className="hidden lg:grid grid-cols-3 gap-8 pt-8">
             <div>
               <div className="text-3xl font-bold text-white">1200+</div>
               <div className="text-white/80">Propiedades Listadas</div>
@@ -78,19 +73,22 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <Card className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl mx-4 p-6 bg-card shadow-xl z-20">
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-text-dark">
-            Buscar propiedades disponibles
-          </h3>
-          <PropertyFilters
-            ubicaciones={ubicaciones}
-            tipos={tipos}
-            presupuestos={presupuestos}
-            onSubmit={handleFilters}
-          />
-        </div>
-      </Card>
+
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4">
+        <Card className="mx-auto w-full max-w-4xl p-6 bg-card shadow-xl z-50">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-text-dark">
+              Buscar propiedades disponibles
+            </h3>
+            <PropertyFilters
+              ubicaciones={ubicaciones}
+              tipos={tipos}
+              presupuestos={presupuestos}
+              onSubmit={handleFilters}
+            />
+          </div>
+        </Card>
+      </div>
     </section>
   );
 };
