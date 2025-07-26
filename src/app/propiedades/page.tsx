@@ -23,12 +23,11 @@ const presupuestos: string[] = [
   "1m+",
 ];
 
-function filtrarPorPresupuesto(precio: string, presupuesto: string) {
-  const num = Number(precio.replace(/[^\d]/g, ""));
-  if (presupuesto === "0-200k") return num <= 200000;
-  if (presupuesto === "200k-500k") return num > 200000 && num <= 500000;
-  if (presupuesto === "500k-1m") return num > 500000 && num <= 1000000;
-  if (presupuesto === "1m+") return num > 1000000;
+function filtrarPorPresupuesto(precio: number, presupuesto: string) {
+  if (presupuesto === "0-200k") return precio <= 200000;
+  if (presupuesto === "200k-500k") return precio > 200000 && precio <= 500000;
+  if (presupuesto === "500k-1m") return precio > 500000 && precio <= 1000000;
+  if (presupuesto === "1m+") return precio > 1000000;
   return true;
 }
 
