@@ -11,6 +11,12 @@ export interface Property {
   description: string;
   mainFeatures: { label: string; quantity?: string | number }[];
   additionalDetails: { label: string; quantity?: string | number }[];
-  images: string[];
+  images: PropertyImage[];
   nearbyServices: { name: string; type: string; distance: string }[];
+}
+
+export interface PropertyImage {
+  id: string;
+  url: string;
+  is_main: boolean;
 }
