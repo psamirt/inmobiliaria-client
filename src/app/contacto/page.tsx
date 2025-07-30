@@ -118,7 +118,7 @@ export default function ContactoPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-elegant bg-primary text-primary-foreground">
+            <Card className="border-none shadow-elegant bg-[#f0f4ff] text-slate-800 ">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-4">Horarios de Atención</h3>
                 <div className="space-y-2">

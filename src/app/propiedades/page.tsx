@@ -89,7 +89,7 @@ export default function PropiedadesPage() {
               location={p.location}
               price={p.price}
               features={p.features}
-              imageUrl={p.images?.[0]}
+              imageUrl={p.images?.[0]?.url}
               slug={p.slug}
             />
           ))}
@@ -129,7 +129,6 @@ export default function PropiedadesPage() {
           </div>
         )}
       </div>
-      <Footer />
     </main>
   );
 } 

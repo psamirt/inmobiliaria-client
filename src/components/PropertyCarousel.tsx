@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { PropertyImage } from "@/types/types";
 
 interface PropertyCarouselProps {
-  images: string[];
+  images: PropertyImage[];
   alt?: string;
 }
 
@@ -30,7 +31,7 @@ const PropertyCarousel = ({ images, alt = "Imagen de propiedad" }: PropertyCarou
       {/* Main carousel */}
       <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-[var(--shadow-elegant)]">
         <Image
-          src={images[currentIndex]}
+          src={images[currentIndex].url}
           alt={alt}
           fill
           className="object-cover transition-all duration-500"
@@ -78,7 +79,7 @@ const PropertyCarousel = ({ images, alt = "Imagen de propiedad" }: PropertyCarou
       <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
         {images.map((img, index) => (
           <button
-            key={index}
+            key={img.id}
             onClick={() => goToImage(index)}
             className={cn(
               "flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200",
@@ -90,7 +91,7 @@ const PropertyCarousel = ({ images, alt = "Imagen de propiedad" }: PropertyCarou
             style={{ minWidth: 80, minHeight: 80 }}
           >
             <Image
-              src={img}
+              src={img.url}
               alt={alt}
               width={80}
               height={80}

@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +23,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link
+          {/* <Link
             href="/"
             className="flex items-center space-x-2 text-primary font-bold text-xl"
           >
             <Home className="h-8 w-8" />
             <span>Casa Ideal</span>
+          </Link> */}
+          <Link href="/">
+            <Image
+              src="/images/preview2.png"
+              alt="Casa Ideal"
+              width={200}
+              height={200}
+              className="cursor-pointer"
+            />
           </Link>
 
           {/* Desktop Navigation */}

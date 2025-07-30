@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Footer = () => {
@@ -9,6 +11,15 @@ const Footer = () => {
         <div className="text-sm text-muted-foreground">
           © 2024 Casa Ideal. Todos los derechos reservados.
         </div>
+        <Link href="/">
+          <Image
+            src="/images/preview2.png"
+            alt="Casa Ideal"
+            width={100}
+            height={100}
+            className="cursor-pointer"
+          />
+        </Link>
         <div className="flex gap-6 text-sm">
           <button
             onClick={() => router.push("/nosotros")}

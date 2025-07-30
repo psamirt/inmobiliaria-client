@@ -28,9 +28,9 @@ export const propiedades = [
       { label: "Cerca de transporte público", quantity: 1 },
     ],
     images: [
-      "/images/hero-building.jpg",
-      "/images/imagen2.png",
-      "/images/imagen3.png",
+      { id: "1", url: "/images/hero-building.jpg", is_main: true },
+      { id: "2", url: "/images/imagen2.png", is_main: false },
+      { id: "3", url: "/images/imagen3.png", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -68,9 +68,9 @@ export const propiedades = [
       { label: "Cerca de transporte público", quantity: 1 },
     ],
     images: [
-      "/images/imagen4.jpg",
-      "/images/imagen5.jpg",
-      "/images/imagen6.jpg",
+      { id: "4", url: "/images/imagen4.jpg", is_main: true },
+      { id: "5", url: "/images/imagen5.jpg", is_main: false },
+      { id: "6", url: "/images/imagen6.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -109,9 +109,9 @@ export const propiedades = [
       { label: "Cerca de transporte público", quantity: 1 },
     ],
     images: [
-      "/images/imagen7.jpg",
-      "/images/imagen5.jpg",
-      "/images/imagen8.jpg",
+      { id: "7", url: "/images/imagen7.jpg", is_main: true },
+      { id: "8", url: "/images/imagen5.jpg", is_main: false },
+      { id: "9", url: "/images/imagen8.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -150,9 +150,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen2.png",
-      "/images/hero-building.jpg",
-      "/images/imagen4.jpg",
+      { id: "10", url: "/images/imagen2.png", is_main: true },
+      { id: "11", url: "/images/hero-building.jpg", is_main: false },
+      { id: "12", url: "/images/imagen4.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -190,9 +190,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen7.jpg",
-      "/images/imagen6.jpg",
-      "/images/imagen2.png",
+      { id: "13", url: "/images/imagen7.jpg", is_main: true },
+      { id: "14", url: "/images/imagen6.jpg", is_main: false },
+      { id: "15", url: "/images/imagen2.png", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -231,9 +231,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen3.png",
-      "/images/imagen8.jpg",
-      "/images/imagen5.jpg",
+      { id: "16", url: "/images/imagen3.png", is_main: true },
+      { id: "17", url: "/images/imagen8.jpg", is_main: false },
+      { id: "18", url: "/images/imagen5.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -271,9 +271,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen4.jpg",
-      "/images/hero-building.jpg",
-      "/images/imagen7.jpg",
+      { id: "19", url: "/images/imagen4.jpg", is_main: true },
+      { id: "20", url: "/images/hero-building.jpg", is_main: false },
+      { id: "21", url: "/images/imagen7.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -310,9 +310,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen5.jpg",
-      "/images/imagen6.jpg",
-      "/images/imagen3.png",
+      { id: "22", url: "/images/imagen5.jpg", is_main: true },
+      { id: "23", url: "/images/imagen6.jpg", is_main: false },
+      { id: "24", url: "/images/imagen3.png", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
@@ -350,9 +350,9 @@ export const propiedades = [
     ],
     
     images: [
-      "/images/imagen8.jpg",
-      "/images/imagen2.png",
-      "/images/imagen6.jpg",
+      { id: "25", url: "/images/imagen8.jpg", is_main: true },
+      { id: "26", url: "/images/imagen2.png", is_main: false },
+      { id: "27", url: "/images/imagen6.jpg", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },

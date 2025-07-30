@@ -52,7 +52,7 @@ export default function Home() {
                     location={p.location}
                     price={p.price}
                     features={p.features}
-                    imageUrl={p.images?.[0]}
+                    imageUrl={p.images?.[0]?.url}
                     slug={p.slug}
                   />
                 </CarouselItem>
