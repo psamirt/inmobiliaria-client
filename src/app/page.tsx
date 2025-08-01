@@ -76,9 +76,10 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center md:items-end">
             <div className="text-primary text-4xl font-bold mb-4">&#10077;</div>
             <div className="italic text-center md:text-right text-lg max-w-xl">
-              &quot;Nuestro negocio se basa en relaciones cercanas y estamos
-              contentos de poder compartir nuestras experiencias positivas en
-              bienes raíces con nuestros clientes.&quot;
+              &quot;Nos identificamos con cada cliente y les ofrecemos lo que
+              mas les conviene. Muchas veces gran parte de nuestro trabajo es
+              entender lo que el cliente quiere y necesita, la empatía es
+              clave.&quot;
             </div>
           </div>
         </div>
