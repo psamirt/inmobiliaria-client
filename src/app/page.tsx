@@ -68,9 +68,9 @@ export default function Home() {
       <section className="bg-background border-t border-border py-16">
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start">
-            <div className="text-lg font-semibold mb-2">Kevin Durand</div>
+            <div className="text-lg font-semibold mb-2">Choni Espejo</div>
             <div className="text-sm text-muted-foreground mb-4">
-              Fundador, Casa Ideal
+              Fundador
             </div>
           </div>
           <div className="flex-1 flex flex-col items-center md:items-end">
