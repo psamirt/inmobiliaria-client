@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-background border-t border-border py-8 mt-16">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm text-muted-foreground">
-          © 2024 Casa Ideal. Todos los derechos reservados.
+          © 2024 Choni Espejo. Todos los derechos reservados.
         </div>
         <Link href="/">
           <Image

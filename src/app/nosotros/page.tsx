@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function NosotrosPage() {
   const stats = [
     { number: "1200+", label: "Propiedades Vendidas", icon: Home },
-    { number: "4500+", label: "Clientes Felices", icon: Users },
+    { number: "4500+", label: "Propiedades Alquiladas", icon: Users },
     { number: "100+", label: "Clientes Felices", icon: Award },
     { number: "20+", label: "Años de Experiencia", icon: Target },
   ];

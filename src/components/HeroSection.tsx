@@ -64,15 +64,15 @@ const HeroSection = () => {
           <div className="hidden lg:grid grid-cols-3 gap-8 pt-8">
             <div>
               <div className="text-3xl font-bold text-white">1200+</div>
-              <div className="text-white/80">Propiedades Listadas</div>
+              <div className="text-white/80">Propiedades Vendidas</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">4500+</div>
-              <div className="text-white/80">Clientes Felices</div>
+              <div className="text-white/80">Propiedades Alquiladas</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">100+</div>
-              <div className="text-white/80">Premios</div>
+              <div className="text-white/80">Clientes Felices</div>
             </div>
           </div>
         </div>
