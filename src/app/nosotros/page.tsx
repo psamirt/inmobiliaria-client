@@ -36,14 +36,14 @@ export default function NosotrosPage() {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Somos <span className="text-primary">Choni Espejo</span>
+        <div className="text-center mb-16  text-primary-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Somos <span className="">Choni Espejo</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed">
             Llevamos más de 20 años en la industria inmobiliaria, ofreciendo el
             mejor servicio en cada una de nuestras transacciones para{" "}
-            <span className="font-semibold text-primary">
+            <span className="font-semibold">
               superar las expectativas
             </span>{" "}
             de nuestros clientes.
@@ -74,12 +74,12 @@ export default function NosotrosPage() {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20  text-primary-foreground">
           <div>
-            <h2 className="text-3xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl font-bold  mb-6">
               Apostamos más allá de tus expectativas
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className=" text-lg leading-relaxed mb-6">
               En <span className="text-primary">Choni Espejo</span>{" "}
               Inmobiliaria, no solo vendemos propiedades: creamos hogares,
               impulsamos negocios y hacemos realidad tus proyectos. Nuestro
@@ -88,7 +88,7 @@ export default function NosotrosPage() {
               vivienda, una oficina, un local comercial o un espacio industrial,
               que se adapte a tu estilo de vida, tus metas y tus necesidades.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+            <p className=" text-lg leading-relaxed mb-8">
               Fuimos pioneros en el desarrollo de proyectos residenciales
               innovadores y seguimos liderando el mercado con propuestas que
               combinan diseño, funcionalidad y ubicaciones estratégicas.
@@ -97,10 +97,10 @@ export default function NosotrosPage() {
             <div className="grid sm:grid-cols-2 gap-4">
               {values.map((value, index) => (
                 <div key={index} className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                  <h3 className="font-semibold text-foreground mb-2">
+                  <h3 className="font-semibold  mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm ">
                     {value.description}
                   </p>
                 </div>
@@ -137,11 +137,11 @@ export default function NosotrosPage() {
             />
           </div>
 
-          <div>
-            <h2 className="text-3xl font-bold text-primary mb-6">
+          <div className="text-primary-foreground">
+            <h2 className="text-3xl font-bold  mb-6">
               Choni Espejo
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className=" text-lg leading-relaxed mb-6">
               Soy una profesional inmobiliaria apasionada por ayudar a mis
               clientes a encontrar el lugar perfecto donde vivir. Mi mayor
               satisfacción es poder mantener a mi familia y ser 100%
@@ -149,7 +149,7 @@ export default function NosotrosPage() {
               tierra no se vende, se compra, y esta filosofía guía cada una de
               mis transacciones.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className=" text-lg leading-relaxed mb-6">
               En el sector inmobiliario, especialmente en el segmento A+, he
               identificado que las casas, terrenos, multifamiliares, oficinas,
               centros comerciales, propiedades industriales, casas de playa y
@@ -158,7 +158,7 @@ export default function NosotrosPage() {
               inversión inmobiliaria sigue siendo una de las mejores opciones,
               especialmente en tiempos de incertidumbre económica.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+            <p className=" text-lg leading-relaxed mb-8">
               Mi recomendación para las mujeres peruanas es que busquen su
               independencia, desarrollen su espíritu emprendedor y se enfoquen
               en su crecimiento profesional. Cada cliente es único, y me
@@ -166,33 +166,33 @@ export default function NosotrosPage() {
               allá de una simple transacción comercial.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4  text-primary-foreground">
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-2">
+                <h3 className="font-semibold  mb-2">
                   Experiencia
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   Más de 20 años en el sector inmobiliario peruano
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-2">
+                <h3 className="font-semibold  mb-2">
                   Especialización
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   Propiedades de alto valor y segmento A+
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-2">
+                <h3 className="font-semibold  mb-2">
                   Filosofía
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm ">
                   &ldquo;La tierra no se vende, la tierra se compra&rdquo;
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-2">
+                <h3 className="font-semibold mb-2">
                   Compromiso
                 </h3>
                 <p className="text-sm text-muted-foreground">
@@ -204,7 +204,7 @@ export default function NosotrosPage() {
         </div>
 
         {/* Mission Statement */}
-        <Card className="mt-30 p-8 md:p-12 bg-primary text-white text-center">
+        <Card className="mt-30 p-8 md:p-12 bg-[#527c62] text-white text-center border-none">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Nuestra Misión
           </h2>

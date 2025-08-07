@@ -13,14 +13,14 @@ export default function PropertyDetailPage() {
   if (!property) return notFound();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen text-primary-foreground">
       {/* Header section */}
-      <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-b border-border">
+      <div className="">
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <h1 className="text-2xl font-bold text-foreground">
+          <h1 className="text-2xl font-bold">
             Detalle de Propiedad
           </h1>
-          <p className="text-muted-foreground mt-1">
+          <p className=" mt-1">
             Descubre todos los detalles de esta increíble propiedad
           </p>
         </div>

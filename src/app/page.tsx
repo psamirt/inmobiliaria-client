@@ -29,7 +29,7 @@ export default function Home() {
     <div>
       <HeroSection />
       {/* Sección de propiedades populares */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-4 py-16 text-primary-foreground">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold">Nuestras Casas Populares</h2>
           <Link
@@ -65,11 +65,11 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonio del fundador anclado al footer */}
-      <section className="bg-background border-t border-border py-16">
+      <section className="bg-background py-16 text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start">
             <div className="text-lg font-semibold mb-2">Choni Espejo</div>
-            <div className="text-sm text-muted-foreground mb-4">
+            <div className="text-sm  mb-4">
               Fundador
             </div>
           </div>

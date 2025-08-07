@@ -33,10 +33,10 @@ const PropertyFilters = ({ ubicaciones, tipos, presupuestos, initial, onSubmit, 
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end ">
       <Select value={ubicacion} onValueChange={setUbicacion}>
-        <SelectTrigger className="w-full">
-          <div className="flex items-center gap-2">
+        <SelectTrigger className="w-full bg-white">
+          <div className="flex items-center gap-2 ">
             <MapPin className="h-4 w-4 text-text-light" />
             <SelectValue placeholder="Ubicación" />
           </div>
@@ -49,7 +49,7 @@ const PropertyFilters = ({ ubicaciones, tipos, presupuestos, initial, onSubmit, 
         </SelectContent>
       </Select>
       <Select value={tipo} onValueChange={setTipo}>
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full bg-white">
           <SelectValue placeholder="Tipo de Propiedad" />
         </SelectTrigger>
         <SelectContent>
@@ -60,7 +60,7 @@ const PropertyFilters = ({ ubicaciones, tipos, presupuestos, initial, onSubmit, 
         </SelectContent>
       </Select>
       <Select value={presupuesto} onValueChange={setPresupuesto}>
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full bg-white">
           <SelectValue placeholder="Presupuesto" />
         </SelectTrigger>
         <SelectContent>
@@ -76,7 +76,7 @@ const PropertyFilters = ({ ubicaciones, tipos, presupuestos, initial, onSubmit, 
           Buscar Ahora
         </Button>
         {showClearButton && (
-          <Button className="h-11" variant="outline" onClick={handleLimpiar} type="button">
+          <Button className="h-11 bg-white" variant="outline" onClick={handleLimpiar} type="button">
             Limpiar filtros
           </Button>
         )}

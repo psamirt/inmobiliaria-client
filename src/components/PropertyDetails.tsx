@@ -14,19 +14,19 @@ const PropertyDetails = ({ props }: { props: Property }) => {
       <div className="space-y-4">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight">
               {props.title}
             </h1>
-            <p className="text-muted-foreground mt-2 flex items-center gap-2">
+            <p className=" mt-2 flex items-center gap-2">
               <MapPin className="h-4 w-4" />
               {props.location}, {props.district}
             </p>
           </div>
           <div className="text-right">
-            <div className="text-3xl md:text-4xl font-bold text-primary">
+            <div className="text-3xl md:text-4xl font-bold ">
               {formatUSD(props.price)}
             </div>
-            <p className="text-sm text-muted-foreground">Precio final</p>
+            <p className="text-sm ">Precio final</p>
           </div>
         </div>
 
@@ -39,8 +39,8 @@ const PropertyDetails = ({ props }: { props: Property }) => {
       {/* Description */}
       <Card className="shadow-[var(--shadow-card)]">
         <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-foreground">Descripción</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <h2 className="text-xl font-semibold">Descripción</h2>
+          <p className=" leading-relaxed">
             {props.description}
           </p>
         </CardContent>
@@ -49,7 +49,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
       {/* Features grid */}
       <Card className="shadow-[var(--shadow-card)]">
         <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-foreground">
+          <h2 className="text-xl font-semibold">
             Características
           </h2>
           <PropertyFeatures features={props.additionalDetails} />

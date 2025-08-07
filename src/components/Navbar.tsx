@@ -19,7 +19,7 @@ const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="bg-background border-b border-border top-0 z-50">
+    <nav className="bg-background top-0 z-50 text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -36,7 +36,7 @@ const Navbar = () => {
               alt="Casa Ideal"
               width={200}
               height={200}
-              className="cursor-pointer"
+              className="cursor-pointer brightness-0 invert"
             />
           </Link>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="outline" asChild>
+            <Button variant="outline" className="bg-white text-black" asChild>
               <Link href="/propiedades">Buscar Casa</Link>
             </Button>
           </div>
@@ -63,6 +63,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="sm"
+              className="bg-white"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -93,7 +94,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="outline" className="w-full mt-4" asChild>
+            <Button variant="outline" className="w-full mt-4 bg-white" asChild>
               <Link href="/propiedades" onClick={() => setIsOpen(false)}>
                 Buscar Casa
               </Link>

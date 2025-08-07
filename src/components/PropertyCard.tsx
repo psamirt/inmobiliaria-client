@@ -16,7 +16,7 @@ const formatUSD = (value: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
 
 const PropertyCard = ({ title, location, price, features, imageUrl, slug }: PropertyCardProps) => (
-  <Card className="p-4 flex flex-col gap-4">
+  <Card className="p-4 flex flex-col gap-4 bg-white">
     <div className="relative w-full h-48 rounded-lg overflow-hidden">
       <Image
         src={imageUrl || "/images/hero-building.jpg"}
@@ -32,7 +32,7 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug }: Prop
       <div className="text-sm text-muted-foreground">{features}</div>
       <div className="font-bold text-primary text-xl">{formatUSD(price)}</div>
     </div>
-    <Button variant="outline" asChild>
+    <Button variant="outline" className="bg-white" asChild>
       <Link href={`/propiedades/${slug}`}>Ver Detalles</Link>
     </Button>
   </Card>

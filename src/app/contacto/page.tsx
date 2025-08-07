@@ -58,13 +58,13 @@ export default function ContactoPage() {
   };
 
   return (
-    <section className="py-20 bg-gradient-subtle">
+    <section className="py-20 bg-gradient-subtle text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold mb-4">
             Contáctanos
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl  max-w-3xl mx-auto">
             ¿Listo para encontrar tu hogar ideal? Nuestro equipo está aquí para
             ayudarte
           </p>
@@ -73,7 +73,7 @@ export default function ContactoPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Información de contacto */}
           <div className="space-y-8">
-            <Card className="border-none shadow-elegant bg-card/80 backdrop-blur-sm">
+            <Card className="border-none shadow-elegant backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-primary">
                   Información de Contacto
@@ -85,8 +85,8 @@ export default function ContactoPage() {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-semibold">Email</h3>
+                    <p className="">
                       contacto@casaideal.com
                     </p>
                   </div>
@@ -97,8 +97,8 @@ export default function ContactoPage() {
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Teléfono</h3>
-                    <p className="text-muted-foreground">+51 999 888 777</p>
+                    <h3 className="font-semibold">Teléfono</h3>
+                    <p className="">+51 999 888 777</p>
                   </div>
                 </div>
 
@@ -107,8 +107,8 @@ export default function ContactoPage() {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Dirección</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-semibold">Dirección</h3>
+                    <p className="">
                       Av. El Sol 123, San Isidro
                       <br />
                       Lima, Perú
@@ -118,7 +118,7 @@ export default function ContactoPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-elegant bg-[#f0f4ff] text-slate-800 ">
+            <Card className="border-none shadow-elegant text-slate-800 ">
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-4">Horarios de Atención</h3>
                 <div className="space-y-2">
@@ -140,7 +140,7 @@ export default function ContactoPage() {
           </div>
 
           {/* Formulario de contacto */}
-          <Card className="border-none shadow-elegant bg-card/80 backdrop-blur-sm">
+          <Card className="border-none shadow-elegant backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-primary">
                 Envíanos un Mensaje

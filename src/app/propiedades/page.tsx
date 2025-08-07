@@ -1,7 +1,6 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import PropertyCard from "@/components/PropertyCard";
-import Footer from "@/components/Footer";
 import PropertyFilters from "@/components/PropertyFilters";
 import { propiedades } from "@/mock/props";
 import {
@@ -70,7 +69,7 @@ export default function PropiedadesPage() {
   return (
     <main className="min-h-screen">
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8">Propiedades Disponibles</h1>
+        <h1 className="text-4xl font-bold mb-8 text-primary-foreground">Propiedades Disponibles</h1>
         <div className="mb-8">
           <PropertyFilters
             ubicaciones={ubicaciones}
@@ -101,6 +100,7 @@ export default function PropiedadesPage() {
               <PaginationContent>
                 <PaginationItem>
                   <PaginationPrevious
+                    className="bg-white"
                     href="#"
                     onClick={() => handlePageChange(Math.max(1, page - 1))}
                     aria-disabled={page === 1}
@@ -109,6 +109,7 @@ export default function PropiedadesPage() {
                 {Array.from({ length: totalPages }).map((_, idx) => (
                   <PaginationItem key={idx}>
                     <PaginationLink
+                      className={`${page === idx + 1 ? "bg-primary text-white" : "bg-white"}`}
                       href="#"
                       isActive={page === idx + 1}
                       onClick={() => handlePageChange(idx + 1)}
@@ -119,6 +120,7 @@ export default function PropiedadesPage() {
                 ))}
                 <PaginationItem>
                   <PaginationNext
+                    className="bg-white"
                     href="#"
                     onClick={() => handlePageChange(Math.min(totalPages, page + 1))}
                     aria-disabled={page === totalPages}

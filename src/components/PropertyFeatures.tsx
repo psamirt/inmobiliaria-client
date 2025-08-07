@@ -60,10 +60,10 @@ const PropertyFeatures = ({ features }: PropertyFeaturesProps) => (
     {features.map((feature) => (
       <li
         key={feature.label}
-        className="flex items-center gap-2 text-muted-foreground"
+        className="flex items-center gap-2"
       >
         {featureIconMap[feature.label] ?? <span className="w-5 h-5" />}
-        <span className="font-medium text-foreground">
+        <span className="font-medium">
           {feature.quantity ? `${feature.quantity} ` : ""}
           {feature.label}
         </span>
