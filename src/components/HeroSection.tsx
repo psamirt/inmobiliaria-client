@@ -42,13 +42,10 @@ const HeroSection = () => {
         <div className="max-w-2xl space-y-8 mt-10 lg:mt-0">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Encuentra Una Casa
-              <br />
-              <span className="text-primary">Que Te Convenga</span>
+              Hola Somos <span className="text-primary">Choni Espejo</span> Inmobiliaria
             </h1>
-            <p className="text-lg text-white/90 max-w-md">
-              ¿Quieres encontrar una casa? Estamos listos para ayudarte a
-              encontrar una que se adapte a tu estilo de vida y necesidades
+            <p className="text-lg text-white/90 ">
+              Cada Propiedad Tiene una Historia Ayúdanos a Escribir la Tuya
             </p>
           </div>
 

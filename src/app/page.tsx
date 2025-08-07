@@ -31,7 +31,7 @@ export default function Home() {
       {/* Sección de propiedades populares */}
       <section className="max-w-6xl mx-auto px-4 py-16 text-primary-foreground">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">Nuestras Casas Populares</h2>
+          <h2 className="text-3xl font-bold">Propiedades Destacadas</h2>
           <Link
             href="/propiedades"
             className="text-primary font-medium hover:underline"

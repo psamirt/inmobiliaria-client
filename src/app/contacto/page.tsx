@@ -61,9 +61,7 @@ export default function ContactoPage() {
     <section className="py-20 bg-gradient-subtle text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
-            Contáctanos
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Contáctanos</h2>
           <p className="text-xl  max-w-3xl mx-auto">
             ¿Listo para encontrar tu hogar ideal? Nuestro equipo está aquí para
             ayudarte
@@ -86,9 +84,7 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="">
-                      contacto@casaideal.com
-                    </p>
+                    <p className="">comunicate@choniespejo.com</p>
                   </div>
                 </div>
 
@@ -98,7 +94,8 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Teléfono</h3>
-                    <p className="">+51 999 888 777</p>
+                    <p>+51 989 692 844 </p>
+                    <p>+51 989 174 240</p>
                   </div>
                 </div>
 
@@ -109,7 +106,7 @@ export default function ContactoPage() {
                   <div>
                     <h3 className="font-semibold">Dirección</h3>
                     <p className="">
-                      Av. El Sol 123, San Isidro
+                      Av. Cerros de Camacho 190, Piso 14
                       <br />
                       Lima, Perú
                     </p>
@@ -124,11 +121,11 @@ export default function ContactoPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Lunes - Viernes:</span>
-                    <span>9:00 AM - 7:00 PM</span>
+                    <span>8:00 AM - 7:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sábados:</span>
-                    <span>9:00 AM - 5:00 PM</span>
+                    <span>8:00 AM - 5:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Domingos:</span>

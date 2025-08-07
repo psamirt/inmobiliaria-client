@@ -10,44 +10,39 @@ export default function NosotrosPage() {
     { number: "20+", label: "Años de Experiencia", icon: Target },
   ];
 
-  const values = [
-    {
-      title: "Innovación Constante",
-      description:
-        "Siempre estamos en busca de la innovación para ofrecer las mejores soluciones inmobiliarias.",
-    },
-    {
-      title: "Confianza y Transparencia",
-      description:
-        "La base de toda relación es la confianza. Construimos relaciones duraderas con nuestros clientes.",
-    },
-    {
-      title: "Excelencia en Servicio",
-      description:
-        "Nos comprometemos a superar las expectativas en cada proyecto y transacción.",
-    },
-    {
-      title: "Compromiso Social",
-      description:
-        "Aportamos a la comunidad y creemos en el potencial de cada persona.",
-    },
-  ];
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16  text-primary-foreground">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Somos <span className="">Choni Espejo</span>
+            Somos{" "}
+            <span className="text-primary">Choni Espejo Inmobiliaria</span>
           </h1>
           <p className="text-xl max-w-3xl mx-auto leading-relaxed">
-            Llevamos más de 20 años en la industria inmobiliaria, ofreciendo el
-            mejor servicio en cada una de nuestras transacciones para{" "}
-            <span className="font-semibold">
-              superar las expectativas
-            </span>{" "}
-            de nuestros clientes.
+            Llevamos más de 20 años en la industria de bienes raices, ofreciendo
+            el mejor servicio en cada una de nuestras transacciones para superar
+            las expectativas de nuestros clientes.
           </p>
+          <div className="mt-10">
+            {/* <h2 className="text-3xl font-bold  mb-6">
+              Apostamos más allá de tus expectativas
+            </h2> */}
+            <p className=" text-lg leading-relaxed mb-6">
+              En <span className="text-primary">Choni Espejo Inmobiliaria</span>
+            , no solo vendemos propiedades: creamos hogares,
+              impulsamos negocios y hacemos realidad tus proyectos. Nuestro
+              equipo de profesionales altamente capacitados trabaja
+              incansablemente para encontrar la solución perfecta, ya sea una
+              vivienda, una oficina, un local comercial o un espacio industrial,
+              que se adapte a tu estilo de vida, tus metas y tus necesidades.
+            </p>
+            {/* <p className=" text-lg leading-relaxed mb-8">
+              Fuimos pioneros en el desarrollo de proyectos residenciales
+              innovadores y seguimos liderando el mercado con propuestas que
+              combinan diseño, funcionalidad y ubicaciones estratégicas.
+            </p> */}
+          </div>
         </div>
 
         {/* Stats */}
@@ -74,56 +69,7 @@ export default function NosotrosPage() {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20  text-primary-foreground">
-          <div>
-            <h2 className="text-3xl font-bold  mb-6">
-              Apostamos más allá de tus expectativas
-            </h2>
-            <p className=" text-lg leading-relaxed mb-6">
-              En <span className="text-primary">Choni Espejo</span>{" "}
-              Inmobiliaria, no solo vendemos propiedades: creamos hogares,
-              impulsamos negocios y hacemos realidad tus proyectos. Nuestro
-              equipo de profesionales altamente capacitados trabaja
-              incansablemente para encontrar la solución perfecta, ya sea una
-              vivienda, una oficina, un local comercial o un espacio industrial,
-              que se adapte a tu estilo de vida, tus metas y tus necesidades.
-            </p>
-            <p className=" text-lg leading-relaxed mb-8">
-              Fuimos pioneros en el desarrollo de proyectos residenciales
-              innovadores y seguimos liderando el mercado con propuestas que
-              combinan diseño, funcionalidad y ubicaciones estratégicas.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              {values.map((value, index) => (
-                <div key={index} className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                  <h3 className="font-semibold  mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm ">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative">
-            <Image
-              src="/images/office.jpg"
-              alt="Oficina Casa Ideal"
-              className="rounded-lg shadow-elevated w-full"
-              width={600}
-              height={400}
-            />
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <div className="text-center text-white">
-                <div className="text-2xl font-bold">20+</div>
-                <div className="text-xs">Años</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20  text-primary-foreground"></div>
 
         {/* Choni Espejo Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
@@ -138,9 +84,7 @@ export default function NosotrosPage() {
           </div>
 
           <div className="text-primary-foreground">
-            <h2 className="text-3xl font-bold  mb-6">
-              Choni Espejo
-            </h2>
+            <h2 className="text-3xl font-bold  mb-6">Choni Espejo</h2>
             <p className=" text-lg leading-relaxed mb-6">
               Soy una profesional inmobiliaria apasionada por ayudar a mis
               clientes a encontrar el lugar perfecto donde vivir. Mi mayor
@@ -168,34 +112,26 @@ export default function NosotrosPage() {
 
             <div className="grid sm:grid-cols-2 gap-4  text-primary-foreground">
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold  mb-2">
-                  Experiencia
-                </h3>
+                <h3 className="font-semibold  mb-2">Experiencia</h3>
                 <p className="text-sm ">
                   Más de 20 años en el sector inmobiliario peruano
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold  mb-2">
-                  Especialización
-                </h3>
+                <h3 className="font-semibold  mb-2">Especialización</h3>
                 <p className="text-sm ">
                   Propiedades de alto valor y segmento A+
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold  mb-2">
-                  Filosofía
-                </h3>
+                <h3 className="font-semibold  mb-2">Filosofía</h3>
                 <p className="text-sm ">
                   &ldquo;La tierra no se vende, la tierra se compra&rdquo;
                 </p>
               </div>
               <div className="p-4 bg-[#aac2f7]/30 rounded-lg">
-                <h3 className="font-semibold mb-2">
-                  Compromiso
-                </h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-semibold mb-2">Compromiso</h3>
+                <p className="text-sm">
                   Servicio personalizado y atención al detalle
                 </p>
               </div>
@@ -220,4 +156,37 @@ export default function NosotrosPage() {
       </div>
     </section>
   );
+}
+
+{
+  /* <div className="grid sm:grid-cols-2 gap-4">
+              {values.map((value, index) => (
+                <div key={index} className="p-4 bg-[#aac2f7]/30 rounded-lg">
+                  <h3 className="font-semibold  mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm ">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
+            </div> */
+}
+
+{
+  /* <div className="relative">
+            <Image
+              src="/images/office.jpg"
+              alt="Oficina Casa Ideal"
+              className="rounded-lg shadow-elevated w-full"
+              width={600}
+              height={400}
+            />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-primary rounded-lg flex items-center justify-center">
+              <div className="text-center text-white">
+                <div className="text-2xl font-bold">20+</div>
+                <div className="text-xs">Años</div>
+              </div>
+            </div>
+          </div> */
 }
