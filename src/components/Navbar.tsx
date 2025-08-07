@@ -67,9 +67,9 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
-                <X className="h-6 w-6" />
+                <X color="black" className="h-6 w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu color="black" className="h-6 w-6 " />
               )}
             </Button>
           </div>
@@ -78,7 +78,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -95,7 +95,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Button variant="outline" className="w-full mt-4 bg-white" asChild>
-              <Link href="/propiedades" onClick={() => setIsOpen(false)}>
+              <Link href="/propiedades" className="text-black" onClick={() => setIsOpen(false)}>
                 Buscar Casa
               </Link>
             </Button>
