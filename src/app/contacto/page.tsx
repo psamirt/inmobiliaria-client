@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
@@ -24,10 +24,12 @@ export default function ContactoPage() {
     try {
       emailjs
         .sendForm(
-          "tu_service_id",
-          "tu_template_id",
+          process.env.NEXT_PUBLIC_SERVICE_ID || "",
+          process.env.NEXT_PUBLIC_TEMPLATE_ID || "",
           e.target as HTMLFormElement,
-          "tu_user_public_key"
+          {
+            publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY_EMAILJS || "",
+          }
         )
         .then(
           (result) => {
@@ -36,7 +38,7 @@ export default function ContactoPage() {
             );
           },
           (error) => {
-            console.error(error.text);
+            console.error(error);
             toast.error(
               "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
             );
