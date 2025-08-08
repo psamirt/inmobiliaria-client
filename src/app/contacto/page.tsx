@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from "emailjs-com";
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
@@ -20,17 +21,29 @@ export default function ContactoPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulación de envío de formulario
-    // En una implementación real, aquí enviarías los datos a tu backend
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      emailjs
+        .sendForm(
+          "tu_service_id",
+          "tu_template_id",
+          e.target as HTMLFormElement,
+          "tu_user_public_key"
+        )
+        .then(
+          (result) => {
+            toast.success(
+              "Mensaje enviado con éxito. Nos pondremos en contacto pronto."
+            );
+          },
+          (error) => {
+            console.error(error.text);
+            toast.error(
+              "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
+            );
+          }
+        );
 
-      toast.success(
-        "Mensaje enviado con éxito. Nos pondremos en contacto pronto."
-      );
-
+      setIsSubmitting(true);
       setFormData({
         nombre: "",
         email: "",
@@ -39,9 +52,6 @@ export default function ContactoPage() {
         mensaje: "",
       });
     } catch (error) {
-      toast.error(
-        "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
-      );
       console.error("Error al enviar el formulario:", error);
     } finally {
       setIsSubmitting(false);
