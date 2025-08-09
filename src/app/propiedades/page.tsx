@@ -11,6 +11,7 @@ import {
   PaginationPrevious,
   PaginationNext,
 } from "@/components/ui/pagination";
+import { getMainImage } from "@/lib/utils";
 
 const getUnique = (arr: string[]): string[] => Array.from(new Set(arr));
 
@@ -93,7 +94,7 @@ export default function PropiedadesPage() {
               location={(p.location as string) || ""}
               price={(p.price as number) || 0}
               features={(p.features as string) || ""}
-              imageUrl={p.images?.[0]?.url || ""}
+              imageUrl={getMainImage(p.images)}
               slug={(p.slug as string) || ""}
               status={(p.status as string) || ""}
             />

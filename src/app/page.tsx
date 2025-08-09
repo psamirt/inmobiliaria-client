@@ -11,6 +11,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { useProperties } from "@/context/PropertiesProvider";
+import { getMainImage } from "@/lib/utils";
 
 export default function Home() {
   const { properties } = useProperties();
@@ -43,7 +44,7 @@ export default function Home() {
                     location={p.location ?? ""}
                     price={p.price ?? 0}
                     features={p.features ?? ""}
-                    imageUrl={p.images?.[0]?.url ?? ""}
+                    imageUrl={getMainImage(p.images)}
                     slug={p.slug ?? ""}
                     status={p.status ?? ""}
                   />
