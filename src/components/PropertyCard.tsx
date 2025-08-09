@@ -10,12 +10,22 @@ interface PropertyCardProps {
   features: string;
   imageUrl?: string;
   slug: string;
+  maxFeatureLength?: number;
 }
 
 const formatUSD = (value: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
 
-const PropertyCard = ({ title, location, price, features, imageUrl, slug }: PropertyCardProps) => (
+const truncateText = (text: string, maxLength: number): string => {
+  if (!text) return "";
+  if (text.length <= maxLength) return text;
+  const sliced = text.slice(0, maxLength);
+  // evitar cortar mitad de palabra
+  const cleaned = sliced.replace(/\s+\S*$/, "");
+  return (cleaned || sliced).trimEnd() + "…";
+};
+
+const PropertyCard = ({ title, location, price, features, imageUrl, slug, maxFeatureLength = 48 }: PropertyCardProps) => (
   <Card className="p-4 flex flex-col gap-4 bg-white">
     <div className="relative w-full h-48 rounded-lg overflow-hidden">
       <Image
@@ -29,7 +39,9 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug }: Prop
     <div className="flex-1 flex flex-col gap-2">
       <h4 className="font-semibold text-lg">{title}</h4>
       <div className="text-sm text-muted-foreground">{location}</div>
-      <div className="text-sm text-muted-foreground">{features}</div>
+      <div className="text-sm text-muted-foreground truncate" title={features}>
+        {truncateText(features, maxFeatureLength)}
+      </div>
       <div className="font-bold text-primary text-xl">{formatUSD(price)}</div>
     </div>
     <Button variant="outline" className="bg-white" asChild>

@@ -45,7 +45,7 @@ const HeroSection = () => {
               Hola Somos <span className="text-primary">Choni Espejo</span> Inmobiliaria
             </h1>
             <p className="text-lg text-white/90 ">
-              Cada Propiedad Tiene una Historia Ayúdanos a Escribir la Tuya
+              Cada propiedad tiene una historia, ayúdanos a escribir la tuya
             </p>
           </div>
 

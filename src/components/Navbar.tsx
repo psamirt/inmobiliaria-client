@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.path}
-                className={`font-medium transition-colors hover:text-primary ${
+                className={`font-medium transition-colors hover:text-accent ${
                   isActive(item.path) ? "text-primary" : "text-text-dark"
                 }`}
               >

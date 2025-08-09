@@ -46,19 +46,19 @@
 :root {
   --radius: 0.625rem;
   /* Twitter Light Theme */
-  --background: #2C5F23;
+  --background: #294627;
   --foreground: #0f1419;
   --card: #ffffff;
   --card-foreground: #0f1419;
   --popover: #ffffff;
   --popover-foreground: #0f1419;
-  --primary: #00a63e;
+  --primary: #7c947a;
   --primary-foreground: #ffffff;
   --secondary: #e1eaef;
   --secondary-foreground: #0f1419;
   --muted: #e1eaef;
   --muted-foreground: #536471;
-  --accent: #f7b928;
+  --accent: #cfbc62;
   --accent-foreground: #0f1419;
   --destructive: #f4212e;
   --border: #e1eaef;

@@ -31,6 +31,12 @@ export const propiedades = [
       { id: "1", url: "/images/hero-building.jpg", is_main: true },
       { id: "2", url: "/images/imagen2.png", is_main: false },
       { id: "3", url: "/images/imagen3.png", is_main: false },
+      { id: "4", url: "/images/imagen3.png", is_main: false },
+      { id: "5", url: "/images/imagen3.png", is_main: false },
+      { id: "6", url: "/images/imagen3.png", is_main: false },
+      { id: "7", url: "/images/imagen3.png", is_main: false },
+      { id: "8", url: "/images/imagen3.png", is_main: false },
+      { id: "9", url: "/images/imagen3.png", is_main: false },
     ],
     nearbyServices: [
       { name: "Metro San Antonio", type: "Transporte", distance: "2 min" },
