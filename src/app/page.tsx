@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const props = await getProperties();
-      setProperties(props);
+      setProperties(props as Property[]);
     };
 
     fetchData();

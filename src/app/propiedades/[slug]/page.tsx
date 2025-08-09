@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import PropertyCarousel from "@/components/PropertyCarousel";
 import PropertyDetails from "@/components/PropertyDetails";
 import PropertyMap from "@/components/PropertyMap";
+import { Property } from "@/types/types";
 
 export default function PropertyDetailPage() {
   const { slug } = useParams();
@@ -35,13 +36,13 @@ export default function PropertyDetailPage() {
             <div className="mb-8">
               <PropertyCarousel images={property.images} alt={property.title} />
             </div>
-            <PropertyDetails props={property} />
+            <PropertyDetails props={property as unknown as Property} />
           </div>
 
           {/* Right column - Map */}
           <div className="lg:col-span-1">
             <div className="sticky top-8">
-              <PropertyMap props={property} />
+              <PropertyMap props={property as unknown as Property} />
             </div>
           </div>
         </div>

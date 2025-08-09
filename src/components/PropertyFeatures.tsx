@@ -1,3 +1,4 @@
+import { MainFeature } from "@/types/types";
 import {
   Utensils,
   Snowflake,
@@ -46,26 +47,14 @@ export const featureIconMap: Record<string, React.ReactNode> = {
   Baños: <ShowerHead size={16} />,
 };
 
-interface FeatureItem {
-  label: string;
-  quantity?: string | number;
-}
-
-interface PropertyFeaturesProps {
-  features: FeatureItem[];
-}
-
-const PropertyFeatures = ({ features }: PropertyFeaturesProps) => (
+const PropertyFeatures = ({ features }: { features: MainFeature | null }) => (
   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-    {features.map((feature) => (
-      <li
-        key={feature.label}
-        className="flex items-center gap-2"
-      >
-        {featureIconMap[feature.label] ?? <span className="w-5 h-5" />}
+    {features?.map((feature) => (
+      <li key={feature?.label} className="flex items-center gap-2">
+        {featureIconMap[feature?.label ?? ""] ?? <span className="w-5 h-5" />}
         <span className="font-medium">
-          {feature.quantity ? `${feature.quantity} ` : ""}
-          {feature.label}
+          {feature?.quantity ? `${feature?.quantity} ` : ""}
+          {feature?.label}
         </span>
       </li>
     ))}

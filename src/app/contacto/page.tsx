@@ -32,6 +32,7 @@ export default function ContactoPage() {
           }
         )
         .then(
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           (result) => {
             toast.success(
               "Mensaje enviado con éxito. Nos pondremos en contacto pronto."

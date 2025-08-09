@@ -38,10 +38,10 @@ const PropertyMap = ({ props }: { props: Property }) => {
           ) : (
             <GoogleMap
               mapContainerStyle={{ width: "100%", height: "100%" }}
-              center={{ lat: props.lat, lng: props.lng }}
+              center={{ lat: props.lat ?? 0, lng: props.lng ?? 0 }}
               zoom={15}
             >
-              <Marker position={{ lat: props.lat, lng: props.lng }} />
+              <Marker position={{ lat: props.lat ?? 0, lng: props.lng ?? 0 }} />
             </GoogleMap>
           )}
         </div>
@@ -50,7 +50,7 @@ const PropertyMap = ({ props }: { props: Property }) => {
         <div className="space-y-4">
           <h3 className="font-semibold text-foreground">Servicios Cercanos</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {props.nearbyServices.map((service, index) => (
+            {props.nearbyServices?.map((service, index) => (
               <div
                 key={index}
                 className="flex items-center justify-between p-3 rounded-lg bg-[#e9f0ff]/30 hover:bg-[#e9f0ff] transition-colors border border-border"

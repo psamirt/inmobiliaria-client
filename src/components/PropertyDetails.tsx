@@ -1,11 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Property } from "@/types/types";
+import { MainFeature, Property } from "@/types/types";
 import { MapPin } from "lucide-react";
 import PropertyFeatures from "./PropertyFeatures";
 
 const formatUSD = (value: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
+    value
+  );
 
 const PropertyDetails = ({ props }: { props: Property }) => {
   return (
@@ -24,14 +26,14 @@ const PropertyDetails = ({ props }: { props: Property }) => {
           </div>
           <div className="text-right">
             <div className="text-3xl md:text-4xl font-bold ">
-              {formatUSD(props.price)}
+              {formatUSD(props.price ?? 0)}
             </div>
             <p className="text-sm ">Precio final</p>
           </div>
         </div>
 
         {/* Quick specs */}
-        <PropertyFeatures features={props.mainFeatures} />
+        <PropertyFeatures features={props.mainFeatures ?? null} />
       </div>
 
       <Separator />
@@ -40,19 +42,17 @@ const PropertyDetails = ({ props }: { props: Property }) => {
       <Card className="shadow-[var(--shadow-card)]">
         <CardContent className="p-6 space-y-4">
           <h2 className="text-xl font-semibold">Descripción</h2>
-          <p className=" leading-relaxed">
-            {props.description}
-          </p>
+          <p className=" leading-relaxed">{props.description}</p>
         </CardContent>
       </Card>
 
       {/* Features grid */}
       <Card className="shadow-[var(--shadow-card)]">
         <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold">
-            Características
-          </h2>
-          <PropertyFeatures features={props.additionalDetails} />
+          <h2 className="text-xl font-semibold">Características</h2>
+          <PropertyFeatures
+            features={props.additionalDetails as unknown as MainFeature | null}
+          />
         </CardContent>
       </Card>
     </div>

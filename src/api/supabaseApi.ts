@@ -27,53 +27,64 @@ export const getProperties = async () => {
       )
     `);
 
-  console.log("data", data);
-
   if (error) {
     console.error("Error trayendo propiedades:", error);
     return [];
   }
 
-  // Utilidad para generar slugs robustos desde cadenas arbitrarias
   const slugify = (input: unknown, fallback?: string): string => {
     if (typeof input !== "string" || input.trim() === "") {
       return fallback ?? "";
     }
     return input
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") // quitar acentos
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .trim()
-      .replace(/[^a-z0-9\s-]/g, "") // quitar caracteres no válidos
+      .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
   };
 
-  // 🔑 Construir propiedades con slug seguro y URLs públicas de imágenes
-  type DbPropertyImage = { id: number | string; url: string; is_main: boolean };
-  type DbProperty = {
+  const normalize = (text: string) =>
+    text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  type DbFeature = { label: string; quantity?: string | number | null };
+  type DbImage = { id: string | number; url: string; is_main: boolean };
+  type DbPropertyRow = {
     id?: number | string | null;
     slug?: string | null;
     title?: string | null;
-    name?: string | null;
     location?: string | null;
     code?: string | number | null;
-    property_images?: DbPropertyImage[] | null;
-    main_features?: { id: number | string; label: string; quantity?: string | number | null }[] | null;
+    property_images?: DbImage[] | null;
+    main_features?: DbFeature[] | null;
   } & Record<string, unknown>;
 
-  const rows: DbProperty[] = Array.isArray(data) ? (data as DbProperty[]) : [];
+  const rows: DbPropertyRow[] = Array.isArray(data) ? (data as DbPropertyRow[]) : [];
+
   const buildFeaturesSummary = (
-    features: { label: string; quantity?: string | number | null }[]
+    features: DbFeature[]
   ): string => {
     if (!features || features.length === 0) return "";
 
-    const getByLabel = (label: string) =>
-      features.find((f) => f.label?.toLowerCase() === label.toLowerCase());
+    const matchOneOf = (labels: string[]) =>
+      features.find((f) => labels.some((l) => normalize(f.label) === normalize(l)));
 
-    const area = getByLabel("Área Construida") || getByLabel("Area Construida") || getByLabel("Área construida");
-    const dormitorios = getByLabel("Dormitorios");
-    const banos = getByLabel("Baños") || getByLabel("Banos") || getByLabel("baños");
+    const area = matchOneOf([
+      "Área Terreno",
+      "Area Terreno",
+      "Área de Terreno",
+      "Area de Terreno",
+      "Área Construida",
+      "Area Construida",
+    ]);
+    const dormitorios = matchOneOf(["Dormitorios"]);
+    const banos = matchOneOf(["Baños", "Banos"]);
+    const cocheras = matchOneOf(["Cocheras", "Cochera", "Estacionamientos", "Estacionamiento"]);
 
     const parts: string[] = [];
     if (area?.quantity) parts.push(String(area.quantity).trim());
@@ -81,12 +92,14 @@ export const getProperties = async () => {
       parts.push(`${dormitorios.quantity} dorm`);
     if (banos?.quantity !== undefined && banos?.quantity !== null)
       parts.push(`${banos.quantity} baños`);
+    if (cocheras?.quantity !== undefined && cocheras?.quantity !== null)
+      parts.push(`${cocheras.quantity} coch`);
 
     if (parts.length > 0) return parts.join(" / ");
 
-    // Fallback genérico: tomar hasta 3 items
+    // Fallback: tomar hasta 4 items
     return features
-      .slice(0, 3)
+      .slice(0, 4)
       .map((f) =>
         f.quantity !== undefined && f.quantity !== null
           ? `${f.quantity} ${f.label}`
@@ -99,7 +112,6 @@ export const getProperties = async () => {
     const baseSlugSource =
       property?.slug ||
       property?.title ||
-      property?.name ||
       property?.location ||
       (property?.code ? String(property.code) : undefined) ||
       (property?.id ? `prop-${property.id}` : undefined);
@@ -107,25 +119,18 @@ export const getProperties = async () => {
     const slug = slugify(baseSlugSource, `prop-${property?.id ?? "sin-id"}`);
 
     type EnrichedPropertyImage = PropertyImage & { publicUrl: string };
-    const rawImages: DbPropertyImage[] = Array.isArray(property?.property_images)
-      ? (property.property_images as DbPropertyImage[])
+    const rawImages: DbImage[] = Array.isArray(property?.property_images)
+      ? (property.property_images as DbImage[])
       : [];
 
     const mainFeaturesRaw = Array.isArray(property?.main_features)
-      ? (property.main_features as { label: string; quantity?: string | number | null }[])
+      ? (property.main_features as DbFeature[])
       : [];
-
-    const featuresSummary = buildFeaturesSummary(mainFeaturesRaw);
 
     return {
       ...property,
       slug,
-      features: featuresSummary,
-      // camelCase espejo para componentes que esperan mainFeatures
-      mainFeatures: mainFeaturesRaw.map((f) => ({
-        label: f.label,
-        quantity: f.quantity ?? undefined,
-      })),
+      features: buildFeaturesSummary(mainFeaturesRaw),
       property_images: rawImages.map<EnrichedPropertyImage>((img) => ({
         id: String(img.id),
         url: img.url,
