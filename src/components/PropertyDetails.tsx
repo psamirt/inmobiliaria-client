@@ -28,7 +28,7 @@ const PropertyDetails = ({ props }: { props: Property }) => {
             <div className="text-3xl md:text-4xl font-bold ">
               {formatUSD(props.price ?? 0)}
             </div>
-            <p className="text-sm ">Precio final</p>
+            <p className="text-sm ">{props.status}</p>
           </div>
         </div>
 

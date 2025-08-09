@@ -1,16 +1,24 @@
 "use client";
 import React from "react";
 import { notFound } from "next/navigation";
-import { propiedades } from "@/mock/props";
+import { useProperties } from "@/context/PropertiesProvider";
 import { useParams } from "next/navigation";
 import PropertyCarousel from "@/components/PropertyCarousel";
 import PropertyDetails from "@/components/PropertyDetails";
 import PropertyMap from "@/components/PropertyMap";
-import { Property } from "@/types/types";
+import { Property, PropertyImage } from "@/types/types";
 
 export default function PropertyDetailPage() {
   const { slug } = useParams();
-  const property = propiedades.find((p) => p.slug === slug);
+  const { getBySlug, loading } = useProperties();
+  const property = getBySlug(String(slug));
+  if (loading) {
+    return (
+      <div className="min-h-screen text-primary-foreground grid place-items-center p-8">
+        <div className="animate-pulse text-sm text-muted-foreground">Cargando propiedad…</div>
+      </div>
+    );
+  }
   if (!property) return notFound();
 
   return (
@@ -34,7 +42,10 @@ export default function PropertyDetailPage() {
           <div className="lg:col-span-2 space-y-8">
             {/* Carousel */}
             <div className="mb-8">
-              <PropertyCarousel images={property.images} alt={property.title} />
+              <PropertyCarousel
+                images={(property.images ?? []) as PropertyImage[]}
+                alt={property.title ?? "Imagen de propiedad"}
+              />
             </div>
             <PropertyDetails props={property as unknown as Property} />
           </div>

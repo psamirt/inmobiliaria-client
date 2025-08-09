@@ -1,7 +1,7 @@
 "use client";
 import HeroSection from "@/components/HeroSection";
 import PropertyCard from "@/components/PropertyCard";
-import { propiedades } from "@/mock/props";
+
 import Link from "next/link";
 import {
   Carousel,
@@ -10,21 +10,12 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
-import { getProperties } from "@/api/supabaseApi";
-import { Property } from "@/types/types";
+import { useProperties } from "@/context/PropertiesProvider";
 
 export default function Home() {
-  const [properties, setProperties] = useState<Property[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const props = await getProperties();
-      setProperties(props as Property[]);
-    };
+  const { properties } = useProperties();
+  console.log("properties", properties);
 
-    fetchData();
-  }, []);
-  console.log(properties);
   return (
     <div>
       <HeroSection />
@@ -42,18 +33,19 @@ export default function Home() {
         <div className="relative">
           <Carousel>
             <CarouselContent>
-              {propiedades.slice(0, 6).map((p, i) => (
+              {properties?.slice(0, 6).map((p, i) => (
                 <CarouselItem
-                  key={p.slug || i}
+                  key={String(p.id ?? p.slug ?? i)}
                   className="md:basis-1/3 lg:basis-1/3"
                 >
                   <PropertyCard
-                    title={p.title}
-                    location={p.location}
-                    price={p.price}
-                    features={p.features}
-                    imageUrl={p.images?.[0]?.url}
-                    slug={p.slug}
+                    title={p.title ?? ""}
+                    location={p.location ?? ""}
+                    price={p.price ?? 0}
+                    features={p.features ?? ""}
+                    imageUrl={p.images?.[0]?.url ?? ""}
+                    slug={p.slug ?? ""}
+                    status={p.status ?? ""}
                   />
                 </CarouselItem>
               ))}
@@ -69,9 +61,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start">
             <div className="text-lg font-semibold mb-2">Choni Espejo</div>
-            <div className="text-sm  mb-4">
-              Fundador
-            </div>
+            <div className="text-sm  mb-4">Fundador</div>
           </div>
           <div className="flex-1 flex flex-col items-center md:items-end">
             <div className="text-primary text-4xl font-bold mb-4">&#10077;</div>

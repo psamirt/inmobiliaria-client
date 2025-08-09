@@ -11,6 +11,7 @@ interface PropertyCardProps {
   imageUrl?: string;
   slug: string;
   maxFeatureLength?: number;
+  status?: string;
 }
 
 const formatUSD = (value: number) =>
@@ -25,7 +26,7 @@ const truncateText = (text: string, maxLength: number): string => {
   return (cleaned || sliced).trimEnd() + "…";
 };
 
-const PropertyCard = ({ title, location, price, features, imageUrl, slug, maxFeatureLength = 48 }: PropertyCardProps) => (
+const PropertyCard = ({ title, location, price, features, imageUrl, slug, status, maxFeatureLength = 48 }: PropertyCardProps) => (
   <Card className="p-4 flex flex-col gap-4 bg-white">
     <div className="relative w-full h-48 rounded-lg overflow-hidden">
       <Image
@@ -35,6 +36,11 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug, maxFea
         style={{ objectFit: "cover" }}
         sizes="(max-width: 768px) 100vw, 33vw"
       />
+      {status && (
+        <span className="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">
+          {status}
+        </span>
+      )}
     </div>
     <div className="flex-1 flex flex-col gap-2">
       <h4 className="font-semibold text-lg">{title}</h4>

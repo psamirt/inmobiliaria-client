@@ -1,31 +1,34 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card } from "./ui/card";
+import { useProperties } from "@/context/PropertiesProvider";
 import PropertyFilters from "@/components/PropertyFilters";
-import { propiedades } from "@/mock/props";
-
-const getUnique = (arr: string[]): string[] => Array.from(new Set(arr));
-
-const ubicaciones: string[] = getUnique(propiedades.map((p) => p.district));
-const tipos: string[] = getUnique(propiedades.map((p) => p.type));
-const presupuestos: string[] = ["0-200k", "200k-500k", "500k-1m", "1m+"];
-
-interface Filters {
-  ubicacion: string;
-  tipo: string;
-  presupuesto: string;
-}
+import { Card } from "@/components/ui/card";
 
 const HeroSection = () => {
+  const { properties } = useProperties();
   const router = useRouter();
 
-  const handleFilters = ({ ubicacion, tipo, presupuesto }: Filters) => {
+  const handleFilters = ({
+    ubicacion,
+    tipo,
+  }: {
+    ubicacion: string;
+    tipo: string;
+  }) => {
     const params = new URLSearchParams();
     if (ubicacion) params.append("ubicacion", ubicacion);
     if (tipo) params.append("tipo", tipo);
-    if (presupuesto) params.append("presupuesto", presupuesto);
     router.push(`/propiedades?${params.toString()}`);
   };
+
+  const getUnique = (arr: string[]): string[] => Array.from(new Set(arr));
+
+  const ubicaciones: string[] = getUnique(
+    properties.map((p) => p.district ?? "") as string[]
+  );
+  const tipos: string[] = getUnique(
+    properties.map((p) => p.type ?? "") as string[]
+  );
 
   return (
     <section
@@ -42,7 +45,8 @@ const HeroSection = () => {
         <div className="max-w-2xl space-y-8 mt-10 lg:mt-0">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hola Somos <span className="text-primary">Choni Espejo</span> Inmobiliaria
+              Hola Somos <span className="text-primary">Choni Espejo</span>{" "}
+              Inmobiliaria
             </h1>
             <p className="text-lg text-white/90 ">
               Cada propiedad tiene una historia, ayúdanos a escribir la tuya
@@ -75,17 +79,21 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Filtros básicos (sin rango de precio) */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4 z-50">
-        <Card className="mx-auto w-full max-w-4xl p-6 bg-card shadow-xl">
-          <div className="space-y-4">
+        <Card className="mx-auto w-full max-w-4xl p-6 bg-white shadow-xl">
+          <div className="space-y-4 ">
             <h3 className="text-xl font-semibold text-text-dark">
               Buscar propiedades disponibles
             </h3>
             <PropertyFilters
               ubicaciones={ubicaciones}
               tipos={tipos}
-              presupuestos={presupuestos}
-              onSubmit={handleFilters}
+              priceBounds={{ min: 0, max: 0 }}
+              onSubmit={({ ubicacion, tipo }) =>
+                handleFilters({ ubicacion, tipo })
+              }
+              showClearButton={false}
             />
           </div>
         </Card>

@@ -7,6 +7,8 @@ export type Property = {
   lat?: number | null;
   lng?: number | null;
   price?: number | null;
+  status?: string | null;
+  type?: string | null;
   features?: string | null;
   code?: string | number | null;
   description?: string;

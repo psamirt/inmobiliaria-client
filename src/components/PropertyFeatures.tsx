@@ -20,38 +20,87 @@ import {
   Ruler,
   Bed,
   ShowerHead,
+  House,
+  Package2,
+  Columns3,
+  Gem ,
+  LampCeiling ,
+  Tv,
+  WashingMachine 
 } from "lucide-react";
 
-export const featureIconMap: Record<string, React.ReactNode> = {
-  "Cocina equipada": <Utensils size={16} />,
-  "Aire acondicionado": <Snowflake size={16} />,
-  "Piscina comunitaria": <Droplet size={16} />,
-  Ascensor: <ArrowUp size={16} />,
-  "Garaje incluido": <Car size={16} />,
-  Trastero: <Archive size={16} />,
-  "Cerca de transporte público": <Train size={16} />,
-  Balcón: <Home size={16} />,
-  "Terraza privada": <Sun size={16} />,
-  Jardín: <Leaf size={16} />,
-  Calefacción: <Sofa size={16} />,
-  "Seguridad 24h": <Shield size={16} />,
-  Amueblado: <Sofa size={16} />,
-  "Mascotas permitidas": <PawPrint size={16} />,
-  "Acceso para discapacitados": <Users size={16} />,
-  "Zona infantil": <Users size={16} />,
-  Gimnasio: <Dumbbell size={16} />,
-  "Vistas al mar": <Eye size={16} />,
-  "Zona de barbacoa": <Beef size={16} />,
-  "Área Construida": <Ruler size={16} />,
-  Dormitorios: <Bed size={16} />,
-  Baños: <ShowerHead size={16} />,
-};
+const normalize = (text: string) =>
+  (text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+function getFeatureIcon(label?: string): React.ReactNode {
+  const key = normalize(label ?? "");
+
+  if (key.includes("cocina")) return <Utensils size={16} />;
+  if (key.includes("banos") || key.includes("baños") || key.includes("bano"))
+    return <ShowerHead size={16} />;
+  if (
+    key.includes("dormitorio") ||
+    key.includes("habitacion") ||
+    key.includes("habitación")
+  )
+    return <Bed size={16} />;
+  if (
+    key.includes("cochera") ||
+    key.includes("cocheras") ||
+    key.includes("estacionamiento") ||
+    key.includes("garaje") ||
+    key.includes("garage")
+  )
+    return <Car size={16} />;
+  if (key.includes("anos")) return <House size={16} />;
+  if (key.includes("deposito")) return <Package2 size={16} />;
+  if (key.includes("pisos")) return <Columns3 size={16} />;
+  if (key.includes("piscina")) return <Droplet size={16} />;
+  if (key.includes("ascensor") || key.includes("elevador"))
+    return <ArrowUp size={16} />;
+  if (key.includes("trastero")) return <Archive size={16} />;
+  if (key.includes("finos")) return <Gem size={16} />;
+  if (key.includes("transporte")) return <Train size={16} />;
+  if (key.includes("balcon") || key.includes("balcón"))
+    return <Home size={16} />;
+  if (key.includes("terraza")) return <Sun size={16} />;
+  if (key.includes("jardin") || key.includes("jardín"))
+    return <Leaf size={16} />;
+  if (key.includes("calefaccion") || key.includes("calefacción"))
+    return <Sofa size={16} />;
+  if (key.includes("seguridad")) return <Shield size={16} />;
+  if (key.includes("amueblado")) return <Sofa size={16} />;
+  if (key.includes("mascotas")) return <PawPrint size={16} />;
+  if (key.includes("sala")) return <Tv size={16} />;
+  if (key.includes("linea")) return <WashingMachine size={16} />;
+  if (key.includes("discapacitados") || key.includes("acceso"))
+    return <Users size={16} />;
+  if (key.includes("infantil")) return <Users size={16} />;
+  if (key.includes("gimnasio")) return <Dumbbell size={16} />;
+  if (key.includes("vistas") || key.includes("vista")) return <Eye size={16} />;
+  if (key.includes("barbacoa")) return <Beef size={16} />;
+  if (
+    key.includes("area") ||
+    key.includes("área") ||
+    key.includes("superficie") ||
+    key.includes("m2") ||
+    key.includes("m²")
+  )
+    return <Ruler size={16} />;
+  if (key.includes("aire") && key.includes("acondicionado"))
+    return <Snowflake size={16} />;
+  if (key.includes("techo")) return <LampCeiling size={16} />;
+  return <span className="w-5 h-5" />;
+}
 
 const PropertyFeatures = ({ features }: { features: MainFeature | null }) => (
   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
     {features?.map((feature) => (
       <li key={feature?.label} className="flex items-center gap-2">
-        {featureIconMap[feature?.label ?? ""] ?? <span className="w-5 h-5" />}
+        {getFeatureIcon(feature?.label)}
         <span className="font-medium">
           {feature?.quantity ? `${feature?.quantity} ` : ""}
           {feature?.label}

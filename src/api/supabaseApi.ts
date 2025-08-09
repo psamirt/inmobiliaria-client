@@ -32,20 +32,6 @@ export const getProperties = async () => {
     return [];
   }
 
-  const slugify = (input: unknown, fallback?: string): string => {
-    if (typeof input !== "string" || input.trim() === "") {
-      return fallback ?? "";
-    }
-    return input
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-");
-  };
-
   const normalize = (text: string) =>
     text
       .normalize("NFD")
@@ -53,15 +39,21 @@ export const getProperties = async () => {
       .toLowerCase();
 
   type DbFeature = { label: string; quantity?: string | number | null };
+  type DbDetail = { label: string; quantity?: string | number | null };
   type DbImage = { id: string | number; url: string; is_main: boolean };
+  type DbNearby = { id?: number | string; name: string; type: string; distance: string };
   type DbPropertyRow = {
     id?: number | string | null;
     slug?: string | null;
     title?: string | null;
     location?: string | null;
+    status?: string | null;
+    type?: string | null;
     code?: string | number | null;
     property_images?: DbImage[] | null;
     main_features?: DbFeature[] | null;
+    additional_details?: DbDetail[] | null;
+    nearby_services?: DbNearby[] | null;
   } & Record<string, unknown>;
 
   const rows: DbPropertyRow[] = Array.isArray(data) ? (data as DbPropertyRow[]) : [];
@@ -109,28 +101,46 @@ export const getProperties = async () => {
   };
 
   const propertiesWithUrls = rows.map((property) => {
-    const baseSlugSource =
-      property?.slug ||
-      property?.title ||
-      property?.location ||
-      (property?.code ? String(property.code) : undefined) ||
-      (property?.id ? `prop-${property.id}` : undefined);
-
-    const slug = slugify(baseSlugSource, `prop-${property?.id ?? "sin-id"}`);
+    // Usar el slug provisto por la BD tal cual
+    const slug = (property?.slug ?? undefined) as string | undefined;
 
     type EnrichedPropertyImage = PropertyImage & { publicUrl: string };
     const rawImages: DbImage[] = Array.isArray(property?.property_images)
       ? (property.property_images as DbImage[])
       : [];
 
-    const mainFeaturesRaw = Array.isArray(property?.main_features)
+    const mainFeaturesRaw: DbFeature[] = Array.isArray(property?.main_features)
       ? (property.main_features as DbFeature[])
       : [];
+    const additionalDetailsRaw: DbDetail[] = Array.isArray(property?.additional_details)
+      ? (property.additional_details as DbDetail[])
+      : [];
+    const nearbyServicesRaw: DbNearby[] = Array.isArray(property?.nearby_services)
+      ? (property.nearby_services as DbNearby[])
+      : [];
+
+    // Remover campos en snake_case para evitar duplicados
+    const { main_features: _mf, additional_details: _ad, nearby_services: _ns, property_images: _pi, ...rest } = property as DbPropertyRow;
+    void _mf; void _ad; void _ns; void _pi; // evitar variables sin uso
 
     return {
-      ...property,
+      ...(rest as Record<string, unknown>),
       slug,
-      features: buildFeaturesSummary(mainFeaturesRaw),
+      mainFeatures: mainFeaturesRaw.map((f) => ({
+        label: f.label,
+        quantity: f.quantity ?? undefined,
+      })),
+      additionalDetails: additionalDetailsRaw.map((d) => ({
+        label: d.label,
+        quantity: d.quantity ?? undefined,
+      })),
+      nearbyServices: nearbyServicesRaw.map((s) => ({
+        name: s.name,
+        type: s.type,
+        distance: s.distance,
+      })),
+      // Si la BD trae features, úsalo; si no, generamos un resumen desde mainFeatures
+      features: (rest as { features?: string }).features ?? buildFeaturesSummary(mainFeaturesRaw),
       property_images: rawImages.map<EnrichedPropertyImage>((img) => ({
         id: String(img.id),
         url: img.url,

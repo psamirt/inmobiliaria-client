@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
 import GoogleMapsProvider from "@/components/GoogleMapsProvider";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { PropertiesProvider } from "@/context/PropertiesProvider";
 
 
 export default function RootLayout({
@@ -15,11 +16,13 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <GoogleMapsProvider>
-          <Navbar />
-          {children}
-          <Footer />
-          <FloatingWhatsApp />
-          <Toaster />
+          <PropertiesProvider>
+            <Navbar />
+            {children}
+            <Footer />
+            <FloatingWhatsApp />
+            <Toaster />
+          </PropertiesProvider>
         </GoogleMapsProvider>
       </body>
     </html>
