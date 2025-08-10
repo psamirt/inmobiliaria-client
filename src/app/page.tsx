@@ -15,7 +15,6 @@ import { getMainImage } from "@/lib/utils";
 
 export default function Home() {
   const { properties } = useProperties();
-  console.log("properties", properties);
 
   return (
     <div>
