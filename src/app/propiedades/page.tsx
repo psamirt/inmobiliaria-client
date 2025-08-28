@@ -73,8 +73,8 @@ export default function PropiedadesPage() {
   };
 
   return (
-    <main className="min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <main className="min-h-screen ">
+      <div className="max-w-[1400px] mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold mb-8 text-primary-foreground">Propiedades Disponibles</h1>
         <div className="mb-8">
           <PropertyFilters
@@ -86,7 +86,7 @@ export default function PropiedadesPage() {
             showClearButton
           />
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-16">
           {paginated.map((p, i: number) => (
             <PropertyCard
               key={String(p.id ?? p.slug ?? i)}

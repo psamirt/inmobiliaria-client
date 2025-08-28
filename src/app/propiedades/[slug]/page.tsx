@@ -22,10 +22,10 @@ export default function PropertyDetailPage() {
   if (!property) return notFound();
 
   return (
-    <div className="min-h-screen text-primary-foreground">
+    <div className="min-h-screen text-primary-foreground max-w-[1400px] mx-auto">
       {/* Header section */}
       <div className="">
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 py-8">
           <h1 className="text-2xl font-bold">
             Detalle de Propiedad
           </h1>
@@ -36,7 +36,7 @@ export default function PropertyDetailPage() {
       </div>
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left column - Images and details */}
           <div className="lg:col-span-2 space-y-8">

@@ -67,9 +67,9 @@ const PropertyFilters = ({
   return (
     <div className="flex flex-wrap justify-evenly gap-4 items-center">
       {/* Filtro de ubicación */}
-      <div className="min-w-[200px]">
+      <div className="min-w-[200px] ">
         <Select value={ubicacion} onValueChange={setUbicacion}>
-          <SelectTrigger className="w-full h-11 bg-white">
+          <SelectTrigger className="w-full h-11 bg-[#fffed8]">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-text-light" />
               <SelectValue placeholder="Ubicación" />
@@ -89,7 +89,7 @@ const PropertyFilters = ({
       {/* Filtro de tipo de propiedad */}
       <div className="min-w-[200px]">
         <Select value={tipo} onValueChange={setTipo}>
-          <SelectTrigger className="w-full h-11 bg-white">
+          <SelectTrigger className="w-full h-11 bg-[#fffed8]">
             <SelectValue placeholder="Tipo de Propiedad" />
           </SelectTrigger>
           <SelectContent>
@@ -105,7 +105,7 @@ const PropertyFilters = ({
 
       {/* Slider de precios */}
       {showClearButton && (
-        <div className="px-2 min-w-[260px] bg-white rounded-md h-9 flex flex-col justify-center">
+        <div className="px-2 min-w-[260px] bg-[#fffed8] rounded-md h-9 flex flex-col justify-center">
           <div className="text-xs text-muted-foreground mb-1 text-center flex justify-between items-center">
             <span className="font-medium ms-1">
               {new Intl.NumberFormat("en-US", {
@@ -143,7 +143,7 @@ const PropertyFilters = ({
         </Button>
         {showClearButton && (
           <Button
-            className="h-11 bg-white"
+            className="h-11 bg-[#fffed8]"
             variant="outline"
             onClick={handleLimpiar}
             type="button"

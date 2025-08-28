@@ -46,9 +46,9 @@
 :root {
   --radius: 0.625rem;
   /* Twitter Light Theme */
-  --background: #294627;
+  --background: #5f765c;
   --foreground: #0f1419;
-  --card: #ffffff;
+  --card: #fffed8;
   --card-foreground: #0f1419;
   --popover: #ffffff;
   --popover-foreground: #0f1419;

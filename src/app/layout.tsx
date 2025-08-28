@@ -8,7 +8,7 @@ import { PropertiesProvider } from "@/context/PropertiesProvider";
 import localFont from "next/font/local";
 
 const times = localFont({
-  src: "../../public/fonts/times.ttf",
+  src: "../../public/fonts/Verdana.ttf",
   weight: "400",
   style: "normal",
 });
@@ -19,7 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={times.className}>
+    <html lang="es" 
+    className={times.className}
+    >
       <body>
         <GoogleMapsProvider>
           <PropertiesProvider>

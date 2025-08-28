@@ -27,7 +27,7 @@ const truncateText = (text: string, maxLength: number): string => {
 };
 
 const PropertyCard = ({ title, location, price, features, imageUrl, slug, status, maxFeatureLength = 48 }: PropertyCardProps) => (
-  <Card className="p-4 flex flex-col gap-4 bg-white">
+  <Card className="p-4 flex flex-col gap-4 bg-[#fffed8] h-[400px]">
     <div className="relative w-full h-48 rounded-lg overflow-hidden">
       <Image
         src={imageUrl || "/images/hero-building.jpg"}
@@ -37,7 +37,7 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug, status
         sizes="(max-width: 768px) 100vw, 33vw"
       />
       {status && (
-        <span className="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">
+        <span className="absolute top-3 left-3 bg-primary text-[#fffed8] text-xs px-2 py-1 rounded">
           {status}
         </span>
       )}
@@ -50,7 +50,7 @@ const PropertyCard = ({ title, location, price, features, imageUrl, slug, status
       </div>
       <div className="font-bold text-primary text-xl">{formatUSD(price)}</div>
     </div>
-    <Button variant="outline" className="bg-white" asChild>
+    <Button variant="outline" className="bg-[#fffed8]" asChild>
       <Link href={`/propiedades/${slug}`}>Ver Detalles</Link>
     </Button>
   </Card>

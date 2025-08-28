@@ -81,7 +81,7 @@ const HeroSection = () => {
 
       {/* Filtros básicos (sin rango de precio) */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4 z-50">
-        <Card className="mx-auto w-full max-w-4xl p-6 bg-white shadow-xl">
+        <Card className="mx-auto w-full max-w-4xl p-6 bg-[#fffed8] shadow-xl">
           <div className="space-y-4 ">
             <h3 className="text-xl font-semibold text-text-dark">
               Buscar propiedades disponibles
