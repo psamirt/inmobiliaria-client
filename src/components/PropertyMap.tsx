@@ -29,10 +29,18 @@ const PropertyMap = ({ props }: { props: Property }) => {
         {/* Map placeholder o mapa interactivo */}
         <div className="relative w-full h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden border border-border flex items-center justify-center">
           {!showMap ? (
-            <Button onClick={() => setShowMap(true)} className="z-10">
-              <MapPin className="h-5 w-5 mr-2" />
-              Ver mapa interactivo
-            </Button>
+            <div
+              className="relative w-full h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden border border-border flex items-center justify-center cursor-pointer"
+              onClick={() => setShowMap(true)}
+            >
+              {/* Ondas animadas */}
+              <span className="absolute w-48 h-48 rounded-full bg-primary/20 animate-ping [animation-delay:1.5s] [animation-duration:2s]"></span>
+              {/* Botón central */}
+              <Button className="z-10">
+                <MapPin className="h-5 w-5 mr-2" />
+                Ver mapa interactivo
+              </Button>
+            </div>
           ) : (
             <GoogleMap
               mapContainerStyle={{ width: "100%", height: "100%" }}
@@ -51,7 +59,7 @@ const PropertyMap = ({ props }: { props: Property }) => {
             {props.nearbyServices?.map((service, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-3 rounded-lg bg-[#e9f0ff]/30 hover:bg-[#e9f0ff] transition-colors border border-border"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#e9f0ff]/30 transition-colors border border-border"
               >
                 <div>
                   <p className="font-medium text-foreground text-sm">

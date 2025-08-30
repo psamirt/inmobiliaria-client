@@ -168,7 +168,7 @@ export default function ContactoPage() {
                       value={formData.nombre}
                       onChange={handleChange}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-white"
                     />
                   </div>
                   <div>
@@ -180,7 +180,7 @@ export default function ContactoPage() {
                       value={formData.telefono}
                       onChange={handleChange}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-white"
                     />
                   </div>
                 </div>
@@ -194,7 +194,7 @@ export default function ContactoPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1"
+                    className="mt-1 bg-white"
                   />
                 </div>
 
@@ -207,7 +207,7 @@ export default function ContactoPage() {
                     value={formData.asunto}
                     onChange={handleChange}
                     required
-                    className="mt-1"
+                    className="mt-1 bg-white"
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
@@ -220,7 +220,7 @@ export default function ContactoPage() {
                     value={formData.mensaje}
                     onChange={handleChange}
                     required
-                    className="mt-1 min-h-[120px]"
+                    className="mt-1 min-h-[120px] bg-white"
                     placeholder="Cuéntanos sobre tu propiedad ideal..."
                   />
                 </div>
