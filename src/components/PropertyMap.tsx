@@ -4,6 +4,7 @@ import { MapPin, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Property } from "@/types/types";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import { FaWhatsapp } from "react-icons/fa";
 
 const PropertyMap = ({ props }: { props: Property }) => {
   const [showMap, setShowMap] = useState(false);
@@ -28,10 +29,7 @@ const PropertyMap = ({ props }: { props: Property }) => {
         {/* Map placeholder o mapa interactivo */}
         <div className="relative w-full h-64 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden border border-border flex items-center justify-center">
           {!showMap ? (
-            <Button
-              onClick={() => setShowMap(true)}
-              className="z-10"
-            >
+            <Button onClick={() => setShowMap(true)} className="z-10">
               <MapPin className="h-5 w-5 mr-2" />
               Ver mapa interactivo
             </Button>
@@ -86,6 +84,19 @@ const PropertyMap = ({ props }: { props: Property }) => {
         >
           <Navigation className="h-4 w-4 mr-2" />
           Ver Direcciones en el Mapa
+        </Button>
+        <Button
+          onClick={() => {
+            const mensaje = `Hola, vi esta propiedad desde su website "${props.title}" ¿Podría darme más información? ${window.location.href}`;
+            const url = `https://wa.me/51989692844?text=${encodeURIComponent(
+              mensaje
+            )}`;
+            window.open(url, "_blank");
+          }}
+          className="w-full hover:opacity-90 transition-opacity bg-green-500 text-white"
+        >
+          <FaWhatsapp className="h-4 w-4 mr-2" />
+          Contactar por WhatsApp
         </Button>
       </CardContent>
     </Card>
