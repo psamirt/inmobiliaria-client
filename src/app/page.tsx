@@ -17,30 +17,33 @@ import Image from "next/image";
 export default function Home() {
   const { properties } = useProperties();
 
+  const width = window.innerWidth > 768 ? 200 : 150;
+  const height = window.innerWidth > 768 ? 200 : 150;
+
   return (
     <div>
       <HeroSection />
-      <div className="hidden lg:grid grid-cols-3 gap-8 pt-8 max-w-6xl items-center mx-auto justify-center px-4 py-16 text-primary-foreground border-b border-primary-foreground">
+      <div className="md:grid grid-cols-1 md:grid-cols-3 hidden gap-4 md:gap-8 pt-8 max-w-6xl items-center mx-auto justify-center px-4 py-8 md:py-16 text-primary-foreground border-b border-primary-foreground">
         <div className="text-center">
-          <div className="text-3xl font-bold text-white">1200+</div>
-          <div className="text-white/80">Propiedades Vendidas</div>
+          <div className="text-2xl md:text-3xl font-bold text-white">1200+</div>
+          <div className="text-sm md:text-base text-white/80">Propiedades Vendidas</div>
         </div>
         <div className="text-center">
-          <div className="text-3xl font-bold text-white">4500+</div>
-          <div className="text-white/80">Propiedades Alquiladas</div>
+          <div className="text-2xl md:text-3xl font-bold text-white">4500+</div>
+          <div className="text-sm md:text-base text-white/80">Propiedades Alquiladas</div>
         </div>
         <div className="text-center">
-          <div className="text-3xl font-bold text-white">100+</div>
-          <div className="text-white/80">Clientes Felices</div>
+          <div className="text-2xl md:text-3xl font-bold text-white">100+</div>
+          <div className="text-sm md:text-base text-white/80">Clientes Felices</div>
         </div>
       </div>
       {/* Sección de propiedades populares */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-primary-foreground">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">Propiedades Destacadas</h2>
+      <section className="max-w-6xl mx-auto px-4 py-8 md:py-16 text-primary-foreground">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 md:mb-8 gap-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center sm:text-left">Propiedades Destacadas</h2>
           <Link
             href="/propiedades"
-            className="text-primary font-medium hover:underline"
+            className="font-medium hover:underline text-sm md:text-base"
           >
             Ver Todas →
           </Link>
@@ -51,7 +54,7 @@ export default function Home() {
               {properties?.slice(0, 6).map((p, i) => (
                 <CarouselItem
                   key={String(p.id ?? p.slug ?? i)}
-                  className="md:basis-1/3 lg:basis-1/3"
+                  className="basis-1/1 sm:basis-1/2 md:basis-1/3 lg:basis-1/3"
                 >
                   <PropertyCard
                     title={p.title ?? ""}
@@ -72,11 +75,11 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonio del fundador anclado al footer */}
-      <section className="bg-background pt-10 text-primary-foreground mt-1">
+      <section className="bg-background pt-6 md:pt-10 text-primary-foreground mt-1">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground">
           <div className="flex-1 flex flex-col items-center">
-            <div className="text-primary text-4xl font-bold">&#10077;</div>
-            <div className="italic text-lg max-w-3xl">
+            <div className="text-primary text-2xl md:text-4xl font-bold">&#10077;</div>
+            <div className="italic text-sm md:text-lg max-w-3xl text-center md:text-left px-4 md:px-0">
               &quot;Nos identificamos con cada cliente y les ofrecemos lo que
               mas les conviene. Muchas veces gran parte de nuestro trabajo es
               entender lo que el cliente quiere y necesita, la empatía es
@@ -85,9 +88,9 @@ export default function Home() {
             <Image
               src="/images/preview2.png"
               alt="Casa Ideal"
-              width={200}
-              height={200}
-              className="cursor-pointer brightness-0 invert mt-10"
+              width={width}
+              height={height}
+              className="cursor-pointer brightness-0 invert mt-6 md:mt-10"
             />
           </div>
         </div>
