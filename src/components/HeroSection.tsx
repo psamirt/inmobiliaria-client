@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useProperties } from "@/context/PropertiesProvider";
 import PropertyFilters from "@/components/PropertyFilters";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 const HeroSection = () => {
   const { properties } = useProperties();
@@ -32,50 +33,46 @@ const HeroSection = () => {
 
   return (
     <section
-      className="min-h-screen flex lg:items-center relative bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex items-start justify-center relative bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url(/images/hero-building.jpg)",
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+       <div className="relative z-10 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto">
         {/* Main Content */}
-        <div className="max-w-2xl space-y-8 mt-10 lg:mt-0">
-          <div className="space-y-6">
+        <div className="space-y-8 pt-16 lg:pt-10">
+          <div className="flex gap-5 items-center justify-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hola Somos <span className="text-primary">Choni Espejo</span>{" "}
-              Inmobiliaria
+              Hola, Somos
+              {/* <span className="text-primary">Choni Espejo</span>{" "}
+              Inmobiliaria */}
             </h1>
-            <p className="text-lg font-bold text-white/90 ">
+            <Image
+              src="/images/preview2.png"
+              alt="Casa Ideal"
+              width={300}
+              height={300}
+              className="cursor-pointer brightness-0 invert"
+            />
+          </div>
+           <div className="flex flex-col gap-4 items-end max-w-[1100px] mt-20">
+            <p className="text-lg font-bold text-white/90">
               Cada propiedad tiene una historia, ayúdanos a escribir la tuya
             </p>
-          </div>
 
-          <Button
-            onClick={() => router.push("/propiedades")}
-            size="lg"
-            className="px-8 py-3 text-lg"
-          >
-            Comenzar
-          </Button>
+            <Button
+              onClick={() => router.push("/propiedades")}
+              size="lg"
+              className="px-8 py-3 text-lg w-fit"
+            >
+              Comenzar
+            </Button>
+          </div>
 
           {/* Stats */}
-          <div className="hidden lg:grid grid-cols-3 gap-8 pt-8">
-            <div>
-              <div className="text-3xl font-bold text-white">1200+</div>
-              <div className="text-white/80">Propiedades Vendidas</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">4500+</div>
-              <div className="text-white/80">Propiedades Alquiladas</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">100+</div>
-              <div className="text-white/80">Clientes Felices</div>
-            </div>
-          </div>
         </div>
       </div>
 

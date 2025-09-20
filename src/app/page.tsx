@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { useProperties } from "@/context/PropertiesProvider";
 import { getMainImage } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Home() {
   const { properties } = useProperties();
@@ -19,6 +20,20 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+      <div className="hidden lg:grid grid-cols-3 gap-8 pt-8 max-w-6xl items-center mx-auto justify-center px-4 py-16 text-primary-foreground border-b border-primary-foreground">
+        <div className="text-center">
+          <div className="text-3xl font-bold text-white">1200+</div>
+          <div className="text-white/80">Propiedades Vendidas</div>
+        </div>
+        <div className="text-center">
+          <div className="text-3xl font-bold text-white">4500+</div>
+          <div className="text-white/80">Propiedades Alquiladas</div>
+        </div>
+        <div className="text-center">
+          <div className="text-3xl font-bold text-white">100+</div>
+          <div className="text-white/80">Clientes Felices</div>
+        </div>
+      </div>
       {/* Sección de propiedades populares */}
       <section className="max-w-6xl mx-auto px-4 py-16 text-primary-foreground">
         <div className="flex justify-between items-center mb-8">
@@ -57,20 +72,23 @@ export default function Home() {
         </div>
       </section>
       {/* Testimonio del fundador anclado al footer */}
-      <section className="bg-background py-16 text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start">
-            <div className="text-lg font-semibold mb-2">Choni Espejo</div>
-            <div className="text-sm  mb-4">Fundador</div>
-          </div>
-          <div className="flex-1 flex flex-col items-center md:items-end">
-            <div className="text-primary text-4xl font-bold mb-4">&#10077;</div>
-            <div className="italic text-center md:text-right text-lg max-w-xl">
+      <section className="bg-background pt-10 text-primary-foreground mt-1">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground">
+          <div className="flex-1 flex flex-col items-center">
+            <div className="text-primary text-4xl font-bold">&#10077;</div>
+            <div className="italic text-lg max-w-3xl">
               &quot;Nos identificamos con cada cliente y les ofrecemos lo que
               mas les conviene. Muchas veces gran parte de nuestro trabajo es
               entender lo que el cliente quiere y necesita, la empatía es
               clave.&quot;
             </div>
+            <Image
+              src="/images/preview2.png"
+              alt="Casa Ideal"
+              width={200}
+              height={200}
+              className="cursor-pointer brightness-0 invert mt-10"
+            />
           </div>
         </div>
       </section>

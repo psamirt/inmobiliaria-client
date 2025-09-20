@@ -19,7 +19,7 @@ const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="bg-background top-0 z-50 text-primary-foreground">
+    <nav className="bg-background top-0 z-50 text-primary-foreground ">
       <div className="max-w-[1400px] mx-auto px-4">
         <div className="flex justify-between items-center h-[80px]">
           {/* Logo */}
@@ -46,14 +46,18 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.path}
-                className={`font-medium transition-colors hover:text-accent ${
+                className={`font-medium transition-colors hover:text-accent text-lg ${
                   isActive(item.path) ? "text-accent" : "text-text-dark"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button variant="outline" className="bg-[#fffed8] text-black" asChild>
+            <Button
+              variant="outline"
+              className="bg-[#fffed8] text-black"
+              asChild
+            >
               <Link href="/propiedades">Buscar Casa</Link>
             </Button>
           </div>
@@ -94,8 +98,16 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="outline" className="w-full mt-4 bg-[#fffed8]" asChild>
-              <Link href="/propiedades" className="text-black" onClick={() => setIsOpen(false)}>
+            <Button
+              variant="outline"
+              className="w-full mt-4 bg-[#fffed8]"
+              asChild
+            >
+              <Link
+                href="/propiedades"
+                className="text-black"
+                onClick={() => setIsOpen(false)}
+              >
                 Buscar Casa
               </Link>
             </Button>

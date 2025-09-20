@@ -14,57 +14,59 @@ export default function NosotrosPage() {
     <section className="py-16 md:py-20 bg-background max-w-[1400px] mx-auto">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16 text-primary-foreground">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
-            Somos{" "}
-            <span className="text-4xl md:text-5xl text-[#154615] block md:inline">
-              Choni Espejo Inmobiliaria
-            </span>
-          </h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
-            Llevamos más de 20 años en la industria de bienes raíces, ofreciendo
-            el mejor servicio en cada una de nuestras transacciones para superar
-            las expectativas de nuestros clientes.
-          </p>
-          <p className="text-base md:text-lg mx-auto leading-relaxed">
-            En{" "}
-            <span className="text-[#154615] font-semibold">
-              Choni Espejo Inmobiliaria
-            </span>
-            , no solo vendemos propiedades: creamos hogares, impulsamos negocios
-            y hacemos realidad tus proyectos. Nuestro equipo de profesionales
-            altamente capacitados trabaja incansablemente para encontrar la
-            solución perfecta, ya sea una vivienda, una oficina, un local
-            comercial o un espacio industrial, que se adapte a tu estilo de
-            vida, tus metas y tus necesidades.
-          </p>
-        </div>
+        <div className="flex justify-center items-center max-w-6xl mx-auto flex-col border-b border-primary-foreground h-[90vh]">
+          <div className="text-center mb-16 text-primary-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+              Somos{" "}
+              <span className="text-4xl md:text-5xl text-[#154615] block md:inline">
+                Choni Espejo Inmobiliaria
+              </span>
+            </h1>
+            <p className="text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-20 ">
+              Llevamos más de 20 años en la industria de bienes raíces,
+              ofreciendo el mejor servicio en cada una de nuestras transacciones
+              para superar las expectativas de nuestros clientes.
+            </p>
+            <p className="text-base md:text-lg mx-auto leading-relaxed italic">
+              En{" "}
+              <span className="text-[#154615] font-semibold">
+                Choni Espejo Inmobiliaria
+              </span>
+              , no solo vendemos propiedades: creamos hogares, impulsamos
+              negocios y hacemos realidad tus proyectos. Nuestro equipo de
+              profesionales altamente capacitados trabaja incansablemente para
+              encontrar la solución perfecta, ya sea una vivienda, una oficina,
+              un local comercial o un espacio industrial, que se adapte a tu
+              estilo de vida, tus metas y tus necesidades.
+            </p>
+          </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => (
-            <Card
-              key={index}
-              className="p-6 text-center transition-colors shadow-lg rounded-lg flex flex-col items-center justify-center bg-[#fffed8]"
-              style={{ minHeight: "150px" }}
-            >
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-real-estate-blue-light rounded-full">
-                  <stat.icon className="w-6 h-6 text-primary" />
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-20">
+            {stats.map((stat, index) => (
+              <Card
+                key={index}
+                className="p-6 text-center transition-colors shadow-lg rounded-lg flex flex-col items-center justify-center bg-[#fffed8]"
+                style={{ minHeight: "150px" }}
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 bg-real-estate-blue-light rounded-full">
+                    <stat.icon className="w-6 h-6 text-primary" />
+                  </div>
                 </div>
-              </div>
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm md:text-base text-muted-foreground font-medium">
-                {stat.label}
-              </div>
-            </Card>
-          ))}
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Choni Espejo Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center mb-20 mt-20">
           <div className="relative">
             <Image
               src="/images/choni_espejo.png"
