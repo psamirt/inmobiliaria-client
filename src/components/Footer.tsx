@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const Footer = () => {
   const router = useRouter();
   return (
-    <footer className="bg-background py-8 mt-16 text-primary-foreground border-t border-primary-foreground max-w-6xl mx-auto">
+    <footer className="bg-background py-8 mt-16 text-primary-foreground border-t border-primary-foreground md:max-w-6xl max-w-[380px] mx-auto">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm ">
           © 2024 Choni Espejo. Todos los derechos reservados.

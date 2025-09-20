@@ -22,26 +22,26 @@ export default function PropertyDetailPage() {
   if (!property) return notFound();
 
   return (
-    <div className="min-h-screen text-primary-foreground max-w-[1400px] mx-auto">
+    <div className="min-h-screen text-primary-foreground max-w-[1400px] mx-auto md:pt-16">
       {/* Header section */}
       <div className="">
-        <div className="max-w-[1400px] mx-auto px-4 py-8">
-          <h1 className="text-2xl font-bold">
+        <div className="max-w-[1400px] mx-auto px-4 py-6 md:py-8">
+          <h1 className="text-xl md:text-2xl font-bold">
             Detalle de Propiedad
           </h1>
-          <p className=" mt-1">
+          <p className="text-sm md:text-base mt-1">
             Descubre todos los detalles de esta increíble propiedad
           </p>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="max-w-[1400px] mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-[1400px] mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Left column - Images and details */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 md:space-y-8">
             {/* Carousel */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <PropertyCarousel
                 images={(property.images ?? []) as PropertyImage[]}
                 alt={property.title ?? "Imagen de propiedad"}
@@ -52,7 +52,7 @@ export default function PropertyDetailPage() {
 
           {/* Right column - Map */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8">
+            <div className="lg:sticky lg:top-8">
               <PropertyMap props={property as unknown as Property} />
             </div>
           </div>

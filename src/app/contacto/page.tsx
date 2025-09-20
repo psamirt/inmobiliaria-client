@@ -71,54 +71,54 @@ export default function ContactoPage() {
   };
 
   return (
-    <section className="py-20 bg-gradient-subtle text-primary-foreground max-w-[1400px] mx-auto">
+    <section className="py-12 md:py-20 bg-gradient-subtle text-primary-foreground max-w-[1400px] mx-auto md:pt-16">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Contáctanos</h2>
-          <p className="text-xl  max-w-3xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">Contáctanos</h2>
+          <p className="text-base md:text-xl max-w-3xl mx-auto">
             ¿Listo para encontrar tu hogar ideal? Nuestro equipo está aquí para
             ayudarte
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Información de contacto */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <Card className="border-none shadow-elegant backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-primary">
+                <CardTitle className="text-xl md:text-2xl font-bold text-primary">
                   Información de Contacto
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary" />
+              <CardContent className="space-y-4 md:space-y-6">
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="">comunicate@choniespejo.com</p>
+                    <h3 className="font-semibold text-sm md:text-base">Email</h3>
+                    <p className="text-sm md:text-base">comunicate@choniespejo.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Teléfono</h3>
-                    <p>+51 989 692 844 </p>
-                    <p>+51 989 174 240</p>
+                    <h3 className="font-semibold text-sm md:text-base">Teléfono</h3>
+                    <p className="text-sm md:text-base">+51 989 692 844</p>
+                    <p className="text-sm md:text-base">+51 989 174 240</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Dirección</h3>
-                    <p className="">
+                    <h3 className="font-semibold text-sm md:text-base">Dirección</h3>
+                    <p className="text-sm md:text-base">
                       Av. Cerros de Camacho 190, Piso 14
                       <br />
                       Lima, Perú
@@ -128,19 +128,19 @@ export default function ContactoPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-none shadow-elegant text-slate-800 ">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-4">Horarios de Atención</h3>
+            <Card className="border-none shadow-elegant text-slate-800">
+              <CardContent className="p-4 md:p-8">
+                <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Horarios de Atención</h3>
                 <div className="space-y-2">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm md:text-base">
                     <span>Lunes - Viernes:</span>
                     <span>8:00 AM - 7:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm md:text-base">
                     <span>Sábados:</span>
                     <span>8:00 AM - 5:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm md:text-base">
                     <span>Domingos:</span>
                     <span>10:00 AM - 2:00 PM</span>
                   </div>
@@ -152,15 +152,15 @@ export default function ContactoPage() {
           {/* Formulario de contacto */}
           <Card className="border-none shadow-elegant backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-primary">
+              <CardTitle className="text-xl md:text-2xl font-bold text-primary">
                 Envíanos un Mensaje
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <Label htmlFor="nombre">Nombre completo</Label>
+                    <Label htmlFor="nombre" className="text-sm md:text-base">Nombre completo</Label>
                     <Input
                       id="nombre"
                       name="nombre"
@@ -168,11 +168,11 @@ export default function ContactoPage() {
                       value={formData.nombre}
                       onChange={handleChange}
                       required
-                      className="mt-1 bg-white"
+                      className="mt-1 bg-white text-sm md:text-base"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="telefono">Teléfono</Label>
+                    <Label htmlFor="telefono" className="text-sm md:text-base">Teléfono</Label>
                     <Input
                       id="telefono"
                       name="telefono"
@@ -180,13 +180,13 @@ export default function ContactoPage() {
                       value={formData.telefono}
                       onChange={handleChange}
                       required
-                      className="mt-1 bg-white"
+                      className="mt-1 bg-white text-sm md:text-base"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="email">Correo electrónico</Label>
+                  <Label htmlFor="email" className="text-sm md:text-base">Correo electrónico</Label>
                   <Input
                     id="email"
                     name="email"
@@ -194,12 +194,12 @@ export default function ContactoPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-1 bg-white"
+                    className="mt-1 bg-white text-sm md:text-base"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="asunto">Asunto</Label>
+                  <Label htmlFor="asunto" className="text-sm md:text-base">Asunto</Label>
                   <Input
                     id="asunto"
                     name="asunto"
@@ -207,20 +207,20 @@ export default function ContactoPage() {
                     value={formData.asunto}
                     onChange={handleChange}
                     required
-                    className="mt-1 bg-white"
+                    className="mt-1 bg-white text-sm md:text-base"
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="mensaje">Mensaje</Label>
+                  <Label htmlFor="mensaje" className="text-sm md:text-base">Mensaje</Label>
                   <Textarea
                     id="mensaje"
                     name="mensaje"
                     value={formData.mensaje}
                     onChange={handleChange}
                     required
-                    className="mt-1 min-h-[120px] bg-white"
+                    className="mt-1 min-h-[100px] md:min-h-[120px] bg-white text-sm md:text-base"
                     placeholder="Cuéntanos sobre tu propiedad ideal..."
                   />
                 </div>
@@ -228,7 +228,7 @@ export default function ContactoPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm md:text-base py-2 md:py-3"
                 >
                   {isSubmitting ? (
                     "Enviando..."

@@ -65,9 +65,9 @@ const PropertyFilters = ({
   };
 
   return (
-    <div className="flex flex-wrap justify-evenly gap-4 items-center">
+    <div className="flex flex-col sm:flex-row flex-wrap justify-evenly gap-4 items-center">
       {/* Filtro de ubicación */}
-      <div className="min-w-[200px] ">
+      <div className="w-full sm:min-w-[200px] sm:max-w-[200px]">
         <Select value={ubicacion} onValueChange={setUbicacion}>
           <SelectTrigger className="w-full h-11 bg-[#fffed8]">
             <div className="flex items-center gap-2">
@@ -87,7 +87,7 @@ const PropertyFilters = ({
       </div>
 
       {/* Filtro de tipo de propiedad */}
-      <div className="min-w-[200px]">
+      <div className="w-full sm:min-w-[200px] sm:max-w-[200px]">
         <Select value={tipo} onValueChange={setTipo}>
           <SelectTrigger className="w-full h-11 bg-[#fffed8]">
             <SelectValue placeholder="Tipo de Propiedad" />
@@ -105,7 +105,7 @@ const PropertyFilters = ({
 
       {/* Slider de precios */}
       {showClearButton && (
-        <div className="px-2 min-w-[260px] bg-[#fffed8] rounded-md h-9 flex flex-col justify-center">
+        <div className="px-2 w-full sm:min-w-[200px] sm:max-w-[200px] bg-[#fffed8] rounded-md h-9 flex flex-col justify-center">
           <div className="text-xs text-muted-foreground mb-1 text-center flex justify-between items-center">
             <span className="font-medium ms-1">
               {new Intl.NumberFormat("en-US", {
@@ -136,14 +136,14 @@ const PropertyFilters = ({
       )}
 
       {/* Botones */}
-      <div className="flex gap-2 items-center">
-        <Button className="h-11" onClick={handleBuscar}>
+      <div className="flex flex-col sm:flex-row gap-2 items-center w-full sm:w-auto">
+        <Button className="h-11 w-full sm:w-auto" onClick={handleBuscar}>
           <Search className="h-4 w-4 mr-2" />
           Buscar Ahora
         </Button>
         {showClearButton && (
           <Button
-            className="h-11 bg-[#fffed8]"
+            className="h-11 w-full sm:w-auto bg-[#fffed8]"
             variant="outline"
             onClick={handleLimpiar}
             type="button"

@@ -11,24 +11,24 @@ const formatUSD = (value: number) =>
 
 const PropertyDetails = ({ props }: { props: Property }) => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Title and price section */}
       <div className="space-y-4">
-        <div className="flex items-start justify-between">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+          <div className="flex-1">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
               {props.title}
             </h1>
-            <p className=" mt-2 flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
+            <p className="text-sm md:text-base mt-2 flex items-center gap-2">
+              <MapPin className="h-4 w-4 flex-shrink-0" />
               {props.location}, {props.district}
             </p>
           </div>
-          <div className="text-right">
-            <div className="text-3xl md:text-4xl font-bold ">
+          <div className="text-left sm:text-right">
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
               {formatUSD(props.price ?? 0)}
             </div>
-            <p className="text-sm ">{props.status}</p>
+            <p className="text-sm">{props.status}</p>
           </div>
         </div>
 
@@ -40,16 +40,16 @@ const PropertyDetails = ({ props }: { props: Property }) => {
 
       {/* Description */}
       <Card className="shadow-[var(--shadow-card)]">
-        <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold">Descripción</h2>
-          <p className=" leading-relaxed">{props.description}</p>
+        <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
+          <h2 className="text-lg md:text-xl font-semibold">Descripción</h2>
+          <p className="text-sm md:text-base leading-relaxed">{props.description}</p>
         </CardContent>
       </Card>
 
       {/* Features grid */}
       <Card className="shadow-[var(--shadow-card)]">
-        <CardContent className="p-6 space-y-4">
-          <h2 className="text-xl font-semibold">Características</h2>
+        <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
+          <h2 className="text-lg md:text-xl font-semibold">Características</h2>
           <PropertyFeatures
             features={props.additionalDetails as unknown as MainFeature | null}
           />

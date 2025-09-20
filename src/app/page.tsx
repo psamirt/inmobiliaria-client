@@ -76,7 +76,7 @@ export default function Home() {
       </section>
       {/* Testimonio del fundador anclado al footer */}
       <section className="bg-background pt-6 md:pt-10 text-primary-foreground mt-1">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground">
+        <div className="md:max-w-6xl max-w-[380px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between border-t border-primary-foreground">
           <div className="flex-1 flex flex-col items-center">
             <div className="text-primary text-2xl md:text-4xl font-bold">&#10077;</div>
             <div className="italic text-sm md:text-lg max-w-3xl text-center md:text-left px-4 md:px-0">

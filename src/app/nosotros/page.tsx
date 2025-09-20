@@ -11,10 +11,10 @@ export default function NosotrosPage() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-background max-w-[1400px] mx-auto">
+    <section className="py-16 md:py-20 bg-background max-w-[1400px] mx-auto  md:pt-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex justify-center items-center max-w-6xl mx-auto flex-col border-b border-primary-foreground h-[90vh]">
+        <div className="flex justify-center items-center max-w-6xl mx-auto flex-col border-b border-primary-foreground md:h-[90vh] h-[120vh]">
           <div className="text-center mb-16 text-primary-foreground">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
               Somos{" "}
@@ -42,22 +42,22 @@ export default function NosotrosPage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 mb-20">
             {stats.map((stat, index) => (
               <Card
                 key={index}
-                className="p-6 text-center transition-colors shadow-lg rounded-lg flex flex-col items-center justify-center bg-[#fffed8]"
-                style={{ minHeight: "150px" }}
+                className="p-3 md:p-6 text-center transition-colors shadow-lg rounded-lg flex flex-col items-center justify-center bg-[#fffed8]"
+                style={{ minHeight: "120px" }}
               >
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-real-estate-blue-light rounded-full">
-                    <stat.icon className="w-6 h-6 text-primary" />
+                <div className="flex justify-center mb-2 md:mb-4">
+                  <div className="p-2 md:p-3 bg-real-estate-blue-light rounded-full">
+                    <stat.icon className="w-4 h-4 md:w-6 md:h-6 text-primary" />
                   </div>
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                <div className="text-lg md:text-2xl lg:text-3xl font-bold text-primary mb-1 md:mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium">
+                <div className="text-xs md:text-sm lg:text-base text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </Card>
@@ -104,7 +104,7 @@ export default function NosotrosPage() {
               allá de una simple transacción comercial.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-800">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-800">
               <div className="p-4 bg-[#fffed8] rounded-lg">
                 <h3 className="font-semibold mb-2">Experiencia</h3>
                 <p className="text-sm">
