@@ -30,7 +30,8 @@ const HeroSection = () => {
   const tipos: string[] = getUnique(
     properties.map((p) => p.type ?? "") as string[]
   );
-
+  const width = window.innerWidth > 768 ? 300 : 150;
+  const height = window.innerWidth > 768 ? 300 : 150;
   return (
     <section
       className="min-h-screen flex items-start justify-center relative bg-cover bg-center bg-no-repeat"
@@ -41,11 +42,11 @@ const HeroSection = () => {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
-       <div className="relative z-10 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto">
         {/* Main Content */}
         <div className="space-y-8 pt-16 lg:pt-10">
-          <div className="flex gap-5 items-center justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <div className="flex flex-col md:flex-row gap-5 items-center justify-center">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-center">
               Hola, Somos
               {/* <span className="text-primary">Choni Espejo</span>{" "}
               Inmobiliaria */}
@@ -53,20 +54,20 @@ const HeroSection = () => {
             <Image
               src="/images/preview2.png"
               alt="Casa Ideal"
-              width={300}
-              height={300}
-              className="cursor-pointer brightness-0 invert"
+              width={width}
+              height={height}
+              className="cursor-pointer brightness-0 invert md:h-32 "
             />
           </div>
-           <div className="flex flex-col gap-4 items-end max-w-[1100px] mt-20">
-            <p className="text-lg font-bold text-white/90">
+          <div className="flex flex-col gap-4 items-center md:items-end max-w-[1100px] mt-8 md:mt-20 mx-auto">
+            <p className="text-sm sm:text-base md:text-lg font-bold text-white/90 text-center md:text-right">
               Cada propiedad tiene una historia, ayúdanos a escribir la tuya
             </p>
 
             <Button
               onClick={() => router.push("/propiedades")}
               size="lg"
-              className="px-8 py-3 text-lg w-fit"
+              className="px-6 py-2 md:px-8 md:py-3 text-base md:text-lg w-fit"
             >
               Comenzar
             </Button>
